@@ -1,58 +1,57 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-function EditComents({ productId }) {
+function EditComments({ productId }) {
   const [commentText, setCommentText] = useState("");
   const [comments, setComments] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(false); // modal state
-  const [editingComment, setEditingComment] = useState(null); // track editing
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [editingComment, setEditingComment] = useState(null);
   const token = localStorage.getItem("authToken");
   const userId = localStorage.getItem("userId"); // logged-in user's id
 
-  useEffect(() => {
-    getComments();
-  }, [productId]);
-
+  // Fetch comments for this product
   const getComments = async () => {
     try {
-      const response = await axios.get(
-        `${import.meta.env.VITE_SERVER_URL}/api/comments`
-      );
-
-      const filtered = response.data.filter(
-        (c) => c.product?._id === productId || c.product === productId
-      );
-
+      const res = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/comments`);
+      // Only comments for this product
+      const filtered = res.data.filter((c) => String(c.product) === String(productId));
       setComments(filtered);
     } catch (error) {
       console.log(error);
     }
   };
 
+  useEffect(() => {
+    if (productId) getComments();
+  }, [productId]);
+
   const handleAddOrEditComment = async () => {
-    if (!commentText) return;
+    if (!commentText.trim()) return;
 
     try {
       if (editingComment) {
-        // Edit comment
-        const response = await axios.put(
+        // Edit existing comment
+        const res = await axios.put(
           `${import.meta.env.VITE_SERVER_URL}/api/comments/${editingComment._id}`,
           { content: commentText },
           { headers: { Authorization: `Bearer ${token}` } }
         );
 
         setComments((prev) =>
-          prev.map((c) => (c._id === editingComment._id ? response.data : c))
+          prev.map((c) => (c._id === editingComment._id ? res.data : c))
         );
       } else {
         // Add new comment
-        const response = await axios.post(
+        const res = await axios.post(
           `${import.meta.env.VITE_SERVER_URL}/api/comments`,
           { content: commentText, productId },
           { headers: { Authorization: `Bearer ${token}` } }
         );
 
-        setComments((prev) => [...prev, response.data]);
+        // Only append if it matches current product
+        if (String(res.data.product) === String(productId)) {
+          setComments((prev) => [...prev, res.data]);
+        }
       }
 
       setCommentText("");
@@ -71,11 +70,9 @@ function EditComents({ productId }) {
 
   const handleDelete = async (commentId) => {
     try {
-      await axios.delete(
-        `${import.meta.env.VITE_SERVER_URL}/api/comments/${commentId}`,
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
-
+      await axios.delete(`${import.meta.env.VITE_SERVER_URL}/api/comments/${commentId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       setComments((prev) => prev.filter((c) => c._id !== commentId));
     } catch (error) {
       console.log(error.response?.data || error);
@@ -84,32 +81,30 @@ function EditComents({ productId }) {
 
   return (
     <div className="comments-section">
-      <h3>Comments</h3>
+      <h3>Comments ({comments.length})</h3>
 
       <div className="comments-list">
         {comments.map((c) => (
           <div key={c._id} className="comment-item">
             <strong>{c.username?.username || "User"}:</strong> {c.content}
 
-            {/* Edit/Delete buttons only for the owner */}
-            {c.username?._id === userId && (
-              <span className="comment-actions">
-                <button onClick={() => startEditing(c)}>Edit</button>
-                <button onClick={() => handleDelete(c._id)}>Delete</button>
-              </span>
-            )}
+            {/* Show edit/delete buttons only for the owner */}
+          {String(c.user) === String(userId) && (
+  <span className="comment-actions">
+    <button onClick={() => startEditing(c)}>Edit</button>
+    <button onClick={() => handleDelete(c._id)}>Delete</button>
+  </span>
+)}
           </div>
         ))}
       </div>
 
-      <button className="open-modal-btn" onClick={() => setIsModalOpen(true)}>
-        Write a Comment
-      </button>
+      <button onClick={() => setIsModalOpen(true)}>Write a Comment</button>
 
       {isModalOpen && (
         <div className="modal-overlay">
           <div className="modal-content">
-            <h4>{editingComment ? "Edit Comment" : "Write your comment"}</h4>
+            <h4>{editingComment ? "Edit Comment" : "Write a Comment"}</h4>
             <textarea
               rows={4}
               value={commentText}
@@ -137,4 +132,4 @@ function EditComents({ productId }) {
   );
 }
 
-export default EditComents;
+export default EditComments;

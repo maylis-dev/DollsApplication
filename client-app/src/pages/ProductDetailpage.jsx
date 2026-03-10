@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import CommentsSection from "../components/Createcomments"; // your comments component
 import "./ProductDetail.css";
+import EditComments from "../components/EditComments"
 
 function ProductDetailpage() {
   const params = useParams();
@@ -57,6 +58,7 @@ function ProductDetailpage() {
 
           {/* COMMENTS COMPONENT */}
           <CommentsSection productId={params.productId} />
+          
         </div>
       </div>
     </>

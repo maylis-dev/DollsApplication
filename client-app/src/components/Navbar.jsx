@@ -1,47 +1,41 @@
-import {
-  use,
-  useState,
-  useRef,
-  useEffect,
-  useEffectEvent,
-  useSyncExternalStore,
-} from "react";
+import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./Navbar.css"
-
+import { AuthContext } from "../context/auth.context";
+import "./Navbar.css";
 
 function Navbar() {
   const [showCategories, setShowCategories] = useState(false);
+
   const navigate = useNavigate();
-  const [explore, setExplore] = useState(false);
- ;
+  const { isLoggedIn, setIsLoggedIn, setLoggedUserId } = useContext(AuthContext);
 
   const categories = ["Dolls", "Bratz", "Barbie"];
-  
 
   const handleCategoryClick = (category) => {
     setShowCategories(false);
-    if (category === "Dolls") {
-      navigate("/products");
-    } else if (category === "Barbie") {
-      navigate("/barbies");
-    } else if (category === "Bratz") {
-      navigate("/bratzs");
-    }
+
+    if (category === "Dolls") navigate("/products");
+    if (category === "Barbie") navigate("/barbies");
+    if (category === "Bratz") navigate("/bratzs");
   };
 
-         
- 
+  const handleLogout = () => {
+    localStorage.removeItem("authToken");
+    setIsLoggedIn(false);
+    setLoggedUserId(null);
+    navigate("/");
+  };
 
   return (
     <div className="navigation">
       <div className="container">
         <div className="buttons">
-        
+
           <div className="find">
             <div onClick={() => setShowCategories(!showCategories)}>
               Find your dolls
             </div>
+
             {showCategories && (
               <div className="dolls-menu">
                 {categories.map((cat) => (
@@ -53,13 +47,24 @@ function Navbar() {
             )}
           </div>
 
-          <Link to="/" className="Home">
-            home
-          </Link>
+          <Link to="/">home</Link>
+          { isLoggedIn ? (
+            <>
+              
+               <Link to="/about">about</Link>
+                <button onClick={handleLogout}>logout</button>
+            </>
+          ) : (
+            <>
+            <Link to="/login">login</Link>
+          <Link to="/signup">signup</Link>
+            </>
+          )}
+      
+         
 
-          <Link to="/about" className="about">
-            about
-          </Link>
+         
+
         </div>
       </div>
     </div>

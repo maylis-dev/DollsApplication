@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 //import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import service from "../services/config.services";
-
+import { Link } from "react-router-dom";
 function Signuppage() {
 // navige passe d une page aune autre avec use navgate met le le dans le try
     const navigate = useNavigate()
@@ -92,6 +92,13 @@ function Signuppage() {
         <button type="submit">Signup</button>
 
         {errorMessage && <p>{errorMessage}</p>}
+
+        
+      <Link to="/login" className="login">
+      <button>
+           if alreardy singup
+           </button>
+          </Link>
         
       </form>
     </div>
