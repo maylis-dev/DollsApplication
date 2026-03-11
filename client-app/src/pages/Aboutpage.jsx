@@ -118,13 +118,12 @@ function Aboutpage() {
                     value={editValue}
                     onChange={(e) => setEditValue(e.target.value)}
                   />
-                  <button onClick={() => handleSave("email")}>Save</button>
-                  <button onClick={() => setEditingField(null)}>Cancel</button>
+                 
                 </>
               ) : (
                 <>
                   {user.email}{" "}
-                  <button onClick={() => setEditingField("email")}>Edit</button>
+                 
                 </>
               )}
             </p>
