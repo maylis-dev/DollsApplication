@@ -35,7 +35,7 @@ body {
 
 .textDetails {
   background-color: rgb(236, 14, 14);
-  color: white;
+  color: rgb(205, 36, 36);
 
   padding: 20px;
   display: flex;

@@ -4,10 +4,9 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 
-
 function Loginpage() {
-
-    const {setIsLoggedIn, setLoggedUserId, setLoggedUserRole} = useContext(AuthContext)
+  const { setIsLoggedIn, setLoggedUserId, setLoggedUserRole } =
+    useContext(AuthContext);
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -31,17 +30,16 @@ function Loginpage() {
         body,
       );
       console.log(response); // HOULD MATCH THE ROUTE IF ITS A POST IN THE BACK YOU POST POST
+      
 
+      // storing the  token sadely in local storage to be use when the user refresh or comeback later
+      localStorage.setItem("authToken", response.data.authToken);
 
-      // storing the  token sadely in local storage to be use when the user refresh or comeback later 
-      localStorage.setItem("authToken", response.data.authToken)
-     
+      //upadete the context state
 
-      //upadete the context state 
-
-      setIsLoggedIn(true)
-      setLoggedUserId(response.data.payload._id)
-      setLoggedUserRole(response.data.payload.role)
+      setIsLoggedIn(true);
+      setLoggedUserId(response.data.payload._id);
+      setLoggedUserRole(response.data.payload.role);
 
       navigate("/");
     } catch (error) {

@@ -1,15 +1,26 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+// Fonction pour décoder le payload JWT
+function parseJwt(token) {
+  try {
+    return JSON.parse(atob(token.split(".")[1]));
+  } catch (e) {
+    return null;
+  }
+}
+
 function CommentsSection({ productId }) {
   const [commentText, setCommentText] = useState("");
   const [comments, setComments] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const token = localStorage.getItem("authToken");
-  const userId = localStorage.getItem("userId"); // Stocké lors du login
 
-  // Fetch comments for this product
+  // Extraire l'ID utilisateur depuis le token
+  const userId = token ? parseJwt(token)?._id : null;
+
+  // Fetch comments
   const getComments = async () => {
     try {
       const res = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/comments`, {
@@ -25,7 +36,7 @@ function CommentsSection({ productId }) {
     if (productId) getComments();
   }, [productId]);
 
-  // Add a new comment
+  // Ajouter un commentaire
   const handleAddComment = async () => {
     if (!commentText.trim()) return;
 
@@ -36,7 +47,6 @@ function CommentsSection({ productId }) {
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
-      // Add the newly created comment to state (username is populated)
       setComments((prev) => [...prev, res.data]);
       setCommentText("");
       setIsModalOpen(false);
@@ -45,7 +55,7 @@ function CommentsSection({ productId }) {
     }
   };
 
-  // Delete a comment
+  // Supprimer un commentaire
   const handleDelete = async (commentId) => {
     try {
       await axios.delete(`${import.meta.env.VITE_SERVER_URL}/api/comments/${commentId}`, {
@@ -65,8 +75,8 @@ function CommentsSection({ productId }) {
         <div key={c._id} className="comment-item">
           <b>{c.username?.username || "User"}:</b> {c.content}
 
-          {/* Delete button only for the author */}
-          {c.username?._id === userId && (
+          {/* Delete seulement pour l'auteur */}
+          {String(c.username?._id) === String(userId) && (
             <button onClick={() => handleDelete(c._id)}>Delete</button>
           )}
         </div>

@@ -6,7 +6,7 @@ import "./App.css";
 import Homepage from "./pages/Homepage";
 import Aboutpage from "./pages/Aboutpage";
 import Barbiepage from "./pages/Barbiepage";
-import Bratzpage from "./pages/Bratzpage";
+
 import ProductDetailpage from "./pages/ProductDetailpage";
 import Productspage from "./pages/Productspage";
 import Loginpage from "./pages/Loginpage";
@@ -16,6 +16,7 @@ import Navbar from "./components/Navbar";
 import CreateProducts from "./pages/createProduct";
 import { AuthWrapper } from "./context/auth.context";
 import EditProductsPage from "./pages/EditProduct";
+import Bratzpage from "./pages/Bratzpage";
 
 
 function App() {

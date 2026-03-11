@@ -12,39 +12,33 @@ function CreateProducts() {
   const [price, setPrice] = useState("");
   const [stock, setStock] = useState("");
   const [image, setImage] = useState("");
+  const [category, setCategory] = useState(""); // start empty
   const [error, setError] = useState("");
 
-  // Handle form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    //console.log("maylis")
-    
-
-    // Get seller ID from localStorage
-   
+    if (!category) {
+      setError("Please select a category.");
+      return;
+    }
 
     const productData = {
       name,
       salePrice: Number(price),
       description,
       stock: Number(stock),
-      image,
+      imageUrl: image, // match backend schema
+      category,
     };
-
- 
 
     try {
       const token = localStorage.getItem("authToken");
 
       await service.post("/products", productData, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+        headers: { Authorization: `Bearer ${token}` },
+      });
 
-     
-      // Redirect to products page after creation
       navigate("/about");
     } catch (err) {
       console.error("Error creating product:", err);
@@ -58,7 +52,7 @@ function CreateProducts() {
 
       <div className="products">
         <div className="blockImage">
-          {image && <img src={image} alt="Product Preview" />}
+          {image && <img src={image} alt="Product Preview" style={{ maxWidth: "200px" }} />}
         </div>
 
         <div className="textDetails">
@@ -74,14 +68,6 @@ function CreateProducts() {
             />
           </div>
 
-          <div className="productinfo">
-            <textarea
-              placeholder="Description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              required
-            />
-          </div>
 
           <div className="price">
             <input
@@ -110,6 +96,20 @@ function CreateProducts() {
               value={image}
               onChange={(e) => setImage(e.target.value)}
             />
+          </div>
+
+          <div className="category">
+            <select
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              required
+            >
+              <option value="" disabled>
+                Select a category
+              </option>
+              <option value="Barbie">Barbie</option>
+              <option value="Bratz">Bratz</option>
+            </select>
           </div>
 
           <div className="askrequest">
