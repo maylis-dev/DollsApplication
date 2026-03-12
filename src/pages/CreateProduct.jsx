@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import service from "../services/config.services";
-
+import axios from "axios";
+import "./CreateProduct.css";
 function CreateProducts() {
   const navigate = useNavigate();
 
@@ -14,6 +15,11 @@ function CreateProducts() {
   const [image, setImage] = useState("");
   const [category, setCategory] = useState(""); // start empty
   const [error, setError] = useState("");
+  // état qui va stocker l'URL de l'image envoyée par le backend (Cloudinary)
+  const [imageUrl, setImageUrl] = useState(null);
+
+  // état pour afficher une animation de chargement pendant l'upload
+  const [isUploading, setIsUploading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,7 +34,7 @@ function CreateProducts() {
       salePrice: Number(price),
       description,
       stock: Number(stock),
-      imageUrl: image, // match backend schema
+      imageUrl: imageUrl,
       category,
     };
 
@@ -46,19 +52,52 @@ function CreateProducts() {
     }
   };
 
+  const handleFileUpload = async (event) => {
+    if (!event.target.files[0]) {
+      // éviter le cas où l'utilisateur ouvre le sélecteur sans choisir de fichier
+      return;
+    }
+
+    setIsUploading(true); // démarre l'animation de chargement
+
+    const uploadData = new FormData();
+    uploadData.append("image", event.target.files[0]);
+    // le mot "image" doit être le même que dans le backend :
+    // uploader.single("image")
+
+    try {
+      const response = await axios.post(
+        "http://localhost:5003/api/upload",
+        uploadData,
+        
+      );
+      console.log(response)
+
+      setImageUrl(response.data.imageUrl);
+      // le backend envoie : res.json({ imageUrl: req.file.path });
+
+ 
+      setIsUploading(false);
+    } catch (error) {
+      navigate("/error");
+      console.error("Erreur upload image:", error);
+  setIsUploading(false);
+  setError("Problème lors de l'upload de l'image");
+  // navigate("/error"); // désactive temporairement pour debugger
+    }
+  };
+
   return (
     <>
       <Navbar />
 
       <div className="products">
-        <div className="blockImage">
-          {image && <img src={image} alt="Product Preview" style={{ maxWidth: "200px" }} />}
-        </div>
+      
 
-        <div className="textDetails">
-          {error && <p style={{ color: "red" }}>{error}</p>}
+        <div className="textDetailss">
+          {error && <p style={{ color: "pink" }}>{error}</p>}
 
-          <div className="name">
+          <div className="names">
             <input
               type="text"
               placeholder="Product Name"
@@ -68,8 +107,7 @@ function CreateProducts() {
             />
           </div>
 
-
-          <div className="price">
+          <div className="prices">
             <input
               type="number"
               placeholder="Price"
@@ -89,14 +127,28 @@ function CreateProducts() {
             />
           </div>
 
-          <div className="image">
+          <div>
+            <label> </label>
+
             <input
-              type="text"
-              placeholder="Image URL"
-              value={image}
-              onChange={(e) => setImage(e.target.value)}
+              type="file"
+              name="image"
+              onChange={handleFileUpload}
+              disabled={isUploading}
             />
+            {/* disabled empêche l'utilisateur d'uploader une autre image pendant l'upload */}
           </div>
+
+          {/* message de chargement pendant l'upload */}
+          {isUploading && <h3>... uploading image</h3>}
+
+          {/* preview de l'image envoyée sur Cloudinary */}
+          {imageUrl && (
+            <div>
+              <img src={imageUrl} alt="preview" width={200} />
+            </div>
+          )}
+
 
           <div className="category">
             <select
@@ -112,7 +164,7 @@ function CreateProducts() {
             </select>
           </div>
 
-          <div className="askrequest">
+          <div className="askrequests">
             <button type="submit" onClick={handleSubmit}>
               Create Product
             </button>

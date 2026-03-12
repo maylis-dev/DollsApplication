@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import service from "../services/config.services";
 import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar"
+import "./signup.css"
 function Signuppage() {
 // navige passe d une page aune autre avec use navgate met le le dans le try
     const navigate = useNavigate()
@@ -52,57 +54,51 @@ function Signuppage() {
     }
   };
 
-  return (
-    <div>
-      <h1>Signup Form</h1>
+ return (
+  <div className="signup-container">
+    
+    <Navbar/>
 
-      <form onSubmit={handleSignup}>
-        <label>Email:</label>
-        <input
-          type="email"
-          name="email"
-          value={email}
-          required={true}// verifie empeche le message si tu le met  n affiche pas de message d erreur 
-          //!demande ajose si c es tnormal 
-          onChange={handleEmailChange}
-        />
+    <form onSubmit={handleSignup} className="signup-form">
+      <h1 className="signup-title">Signup</h1>
+      <label className="signup-label">Email:</label>
+      <input
+        className="signup-input"
+        type="email"
+        name="email"
+        value={email}
+        required
+        onChange={handleEmailChange}
+      />
 
-        <br />
+      <label className="signup-label">Username:</label>
+      <input
+        className="signup-input"
+        type="text"
+        name="username"
+        value={username}
+        onChange={handleUsernameChange}
+      />
 
-        <label>Username:</label>
-        <input
-          type="text"
-          name="username"
-          value={username}
-          onChange={handleUsernameChange}
-        />
+      <label className="signup-label">Password:</label>
+      <input
+        className="signup-input"
+        type="password"
+        name="password"
+        value={password}
+        onChange={handlePasswordChange}
+      />
 
-        <br />
+      <button type="submit" className="signup-button">Signup</button>
 
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePasswordChange}
-        />
+      {errorMessage && <p className="signup-error">{errorMessage}</p>}
 
-        <br />
-
-        <button type="submit">Signup</button>
-
-        {errorMessage && <p>{errorMessage}</p>}
-
-        
-      <Link to="/login" className="login">
-      <button>
-           if alreardy singup
-           </button>
-          </Link>
-        
-      </form>
-    </div>
-  );
+      <Link to="/login" className="login-link">
+        <button className="login-button">Already signed up? Login</button>
+      </Link>
+    </form>
+  </div>
+);
 }
 
 export default Signuppage;

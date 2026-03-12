@@ -35,45 +35,64 @@ function ProductDetailpage() {
   if (loading) return <h3>Loading...</h3>;
   if (!product) return <h3>Product not found.</h3>;
   console.log(product);
+  
 
-  return (
-    <>
-      <Navbar />
+return (
+  <>
+    <Navbar />
 
-      <div className="products">
-        <div className="blockImage">
-          {product.imageUrl && (
-            <img src={product.imageUrl} alt={product.name} />
-          )}
-        </div>
-
-        <div className="textDetails">
-          <div className="name">
-            <h1>{product.name}</h1>
-          </div>
-
-          <div className="productinfo">
-            <p>Seller: {product.seller?.username || "N/A"}</p>
-                    
-            <p>Stock: {product.stock}</p>
-            <p>Category: {product.category || "N/A"}</p>
-         
-          </div>
-
-          <div className="price">
-            <p>Price: ${product.salePrice}</p>
-          </div>
-
-          <div className="askrequest">
-           <p>Email: {product.seller?.email || "N/A"}</p>
-          </div>
-
-          {/* COMMENTS COMPONENT */}
-          {isLoggedIn && <CommentsSection productId={productId} />}
-        </div>
+    <div className="productsis">
+      {/* IMAGE BLOCK */}
+      <div className="blockImage">
+        {product.imageUrl ? (
+          <img
+            src={product.imageUrl}
+            alt={product.name}
+            style={{ maxWidth: "300px" }}
+          />
+        ) : (
+          <p>No image available</p>
+        )}
       </div>
-    </>
-  );
+
+      {/* TEXT DETAILS */}
+      <div className="textDetails">
+        {/* Product Name */}
+        <div className="text-block name">
+          <h1>{product.name}</h1>
+        </div>
+
+        {/* Seller, Stock, Category in ONE block */}
+        <div className="text-block productinfo">
+          <p>Seller: {product.seller?.username || "N/A"}</p>
+          <p>Stock: {product.stock}</p>
+          <p>Category: {product.category || "N/A"}</p>
+        </div>
+
+        {/* Price */}
+        <div className="text-block price">
+          <p>Price: ${product.salePrice}</p>
+        </div>
+
+        {/* Email / Request */}
+        {isLoggedIn && (
+           <div className="text-block askrequest">
+          <p>Email: {product.seller?.email || "N/A"}</p>
+          
+        </div>
+        )}
+
+        {/* Comments Section */}
+        {isLoggedIn && (
+          <div className="text-block comments-section">
+            <CommentsSection productId={productId} />
+          </div>
+        )}
+      </div>
+    </div>
+  </>
+);
+
 }
 
 export default ProductDetailpage;

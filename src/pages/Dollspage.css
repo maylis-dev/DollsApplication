@@ -1,73 +1,123 @@
+/* --- Global --- */
 body {
   margin: 0;
   padding: 0;
+  font-family: Arial, sans-serif;
 }
 
+/* --- Container --- */
 .containerDolls {
-  background-color: rgb(201, 201, 201);
-
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: antiquewhite;
   border-radius: 15px;
-  height: 500px;
-  margin-top: 20px;
 }
+
+/* --- Block Dolls --- */
 .blockDolls {
-  background-color: pink;
   display: flex;
-  justify-content: space-evenly;
   flex-direction: column;
-  width: 1200px;
   gap: 25px;
 }
 
+/* --- Title --- */
 .titre {
-  background-color: azure;
+  background-color: pink;
   height: 50px;
   display: flex;
-  text-align: center;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-
+  padding: 0 20px;
+  border-radius: 8px;
 }
 
-.titre h1{
-      
-    
-    margin: 0; 
-    font-weight: 500;
-    font-size: 25px;
-
-
+.titre h1 {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 500;
 }
 
-.containerDolls {
-  padding-top: 60px;
-  background-color: antiquewhite;
-  max-width: 1780px;
-  margin: 0 auto;
+/* --- Filter buttons --- */
+.filter-buttons {
+  display: flex;
+  gap: 10px;
 }
 
+.filter-btn {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: pink;
+  cursor: pointer;
+}
+
+.filter-btn.active {
+  background-color: rgb(249, 244, 245);
+}
+
+/* --- Dolls List --- */
 .listeDolls {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 40px;
-  background-color: aquamarine;
+  gap: 20px;
   padding: 20px;
+  background-color: #ffe6f0;
+  border-radius: 8px;
 }
 
-.purchaseDolls {
+/* --- Individual Doll Card --- */
+.purchaseDolls, .doll-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content:space-evenly;
-  background-color: rgb(51, 102, 147);
- gap: 40px;
+  justify-content: space-around;
   width: 150px;
-  border-radius: 8px;
   height: 250px;
+  background-color: palevioletred;
+  border-radius: 8px;
+  gap: 10px;
+  padding: 10px;
+  color: white;
 }
 
-.purchaseDolls button{
-    background-color: blue;
-    margin-top: 40px;
+.doll-name {
+  text-align: center;
+  font-size: 16px;
+  margin: 0;
+}
+
+.dollImage {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* --- Request button --- */
+.request-btn {
+  background-color: rgb(246, 246, 251);
+  color: rgb(3, 3, 3);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* --- Responsive --- */
+@media screen and (max-width: 768px) {
+  .listeDolls {
+    gap: 15px;
+  }
+
+  .purchaseDolls, .doll-card {
+    width: 120px;
+    height: 200px;
+  }
+
+  .dollImage {
+    width: 80px;
+    height: 80px;
+  }
 }

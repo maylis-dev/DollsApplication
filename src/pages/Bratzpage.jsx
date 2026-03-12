@@ -52,7 +52,14 @@ function Bratzpage() {
               {products.map((product) => (
                 <div className="purchaseDolls" key={product._id}>
                   <h3>{product.name}</h3>
-                  <p>Category: {product.category || "N/A"}</p>
+                   {/* Image */}
+                {product.imageUrl && (
+                  <img
+                    src={product.imageUrl}
+                    alt={product.name}
+                    className="dollImage"
+                  />
+                )}
                   <Link to={`/products/${product._id}`}>
                     <button>Request</button>
                   </Link>

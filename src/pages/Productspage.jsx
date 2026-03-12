@@ -16,9 +16,10 @@ function Productspage() {
   const getData = async () => {
     try {
       // Si tu veux filtrer côté backend
-      const query = selectedCategory !== "All" ? `?category=${selectedCategory}` : "";
+      const query =
+        selectedCategory !== "All" ? `?category=${selectedCategory}` : "";
       const response = await axios.get(
-        `${import.meta.env.VITE_SERVER_URL}/api/products${query}`
+        `${import.meta.env.VITE_SERVER_URL}/api/products${query}`,
       );
       console.log("All products fetched:", response.data); // 🔍 debug
       setAllProducts(response.data);
@@ -40,47 +41,59 @@ function Productspage() {
   }
 
   return (
-    <>
-      <Navbar />
+  <>
+    <Navbar />
 
-      <div className="containerDolls">
-        <div className="blockDolls">
-          <div className="titre">
-            <h1>All Dolls</h1>
+    <div className="containerDolls">
+      <div className="blockDolls">
+        {/* Titre et filtres */}
+        <div className="titre">
+          <h1>All Dolls</h1>
 
-            {/* Filter buttons */}
-            <div className="filter-buttons">
-              {["All", "Barbie", "Bratz"].map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setSelectedCategory(cat)}
-                  className={selectedCategory === cat ? "active" : ""}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="listeDolls">
-            {filteredProducts.length === 0 ? (
-              <p>No products found for this category.</p>
-            ) : (
-              filteredProducts.map((product) => (
-                <div className="purchaseDolls" key={product._id}>
-                  <h3>{product.name}</h3>
-                  <p>Category: {product.category || "N/A"}</p>
-                  <Link to={`/products/${product._id}`}>
-                    <button>Request</button>
-                  </Link>
-                </div>
-              ))
-            )}
+          <div className="filter-buttons">
+            {["All", "Barbie", "Bratz"].map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={selectedCategory === cat ? "active filter-btn" : "filter-btn"}
+              >
+                {cat}
+              </button>
+            ))}
           </div>
         </div>
+
+        {/* Liste des produits */}
+        <div className="listeDolls">
+          {filteredProducts.length === 0 ? (
+            <p className="no-products">No products found for this category.</p>
+          ) : (
+            filteredProducts.map((product) => (
+              <div className="purchaseDolls doll-card" key={product._id}>
+                {/* Nom */}
+                <h3 className="doll-name">{product.name}</h3>
+
+                {/* Image */}
+                {product.imageUrl && (
+                  <img
+                    src={product.imageUrl}
+                    alt={product.name}
+                    className="dollImage"
+                  />
+                )}
+
+                {/* Bouton demander */}
+                <Link to={`/products/${product._id}`}>
+                  <button className="request-btn">Request</button>
+                </Link>
+              </div>
+            ))
+          )}
+        </div>
       </div>
-    </>
-  );
+    </div>
+  </>
+);
 }
 
 export default Productspage;

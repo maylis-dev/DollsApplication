@@ -32,9 +32,9 @@ function Navbar() {
         <div className="buttons">
 
           <div className="find">
-            <div onClick={() => setShowCategories(!showCategories)}>
-              Find your dolls
-            </div>
+            <button onClick={() => setShowCategories(!showCategories)}>
+              Dolls
+            </button>
 
             {showCategories && (
               <div className="dolls-menu">
@@ -47,17 +47,17 @@ function Navbar() {
             )}
           </div>
 
-          <Link to="/">home</Link>
+         <button> <Link to="/">home</Link></button>
           { isLoggedIn ? (
             <>
               
-               <Link to="/about">about</Link>
+               <button><Link to="/about">about</Link></button>
                 <button onClick={handleLogout}>logout</button>
             </>
           ) : (
             <>
-            <Link to="/login">login</Link>
-          <Link to="/signup">signup</Link>
+           <button> <Link to="/login">login</Link></button>
+          <button><Link to="/signup">signup</Link></button>
             </>
           )}
       

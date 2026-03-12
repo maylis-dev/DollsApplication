@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useContext } from "react";
 import axios from "axios";
+import Navbar from "../components/Navbar"
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
+import "./login.css"
 
 function Loginpage() {
   const { setIsLoggedIn, setLoggedUserId, setLoggedUserRole } =
@@ -53,36 +55,38 @@ function Loginpage() {
     }
   };
 
-  return (
-    <div>
-      <h1>Login Form</h1>
+ return (
 
-      <form onSubmit={handleLogin}>
-        <label>Email:</label>
-        <input
-          type="email"
-          name="email"
-          value={email}
-          onChange={handleEmailChange}
-        />
+  <div className="login-container">
+   
+   <Navbar/>
 
-        <br />
+    <form onSubmit={handleLogin} className="login-form">
+       <h1 className="login-title">Login</h1>
+      <label className="login-label">Email:</label>
+      <input
+        className="login-input"
+        type="email"
+        name="email"
+        value={email}
+        onChange={handleEmailChange}
+      />
 
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePasswordChange}
-        />
+      <label className="login-label">Password:</label>
+      <input
+        className="login-input"
+        type="password"
+        name="password"
+        value={password}
+        onChange={handlePasswordChange}
+      />
 
-        <br />
+      <button type="submit" className="login-button">Login</button>
 
-        <button type="submit">Login</button>
-        {errorMessage && <p>{errorMessage}</p>}
-      </form>
-    </div>
-  );
+      {errorMessage && <p className="login-error">{errorMessage}</p>}
+    </form>
+  </div>
+);
 }
 
 export default Loginpage;

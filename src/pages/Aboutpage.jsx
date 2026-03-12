@@ -88,22 +88,26 @@ function Aboutpage() {
 
           <div className="info">
             {/* Username */}
-            <p>
+            <p className="usernameRow">
               <strong>Username: </strong>
               {editingField === "username" ? (
                 <>
                   <input
+                  className="editInput"
                     type="text"
                     value={editValue}
                     onChange={(e) => setEditValue(e.target.value)}
                   />
+                  <div className="editButtonsColumn">
                   <button onClick={() => handleSave("username")}>Save</button>
                   <button onClick={() => setEditingField(null)}>Cancel</button>
+                </div>
                 </>
+                
               ) : (
                 <>
-                  {user.username}{" "}
-                  <button onClick={() => setEditingField("username")}>Edit</button>
+                 <span className="usernameText"> {user.username}{" "}</span>
+                  <button className="editButton" onClick={() => setEditingField("username")}>Edit</button>
                 </>
               )}
             </p>
@@ -132,10 +136,7 @@ function Aboutpage() {
 
         {/* Section pour afficher les créations de l'utilisateur */}
         <div className="mydolls">
-          <div className="requestlist">
-            <p>My Requests</p>
-          </div>
-
+         
           <div className="mydollslist">
             <div className="myCreation">
               <p>My Creations Here</p>
