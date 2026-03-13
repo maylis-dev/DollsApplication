@@ -1,16 +1,43 @@
-# React + Vite
+# AppDoll – Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+AppDoll is a web application that allows users to buy and sell collectible dolls. It is a specialized marketplace for collectible dolls such as Barbie, Bratz, and more. Users can browse dolls, view details, create posts to sell dolls, manage profiles, and send purchase requests. This repository contains the frontend of the application built with React and React Router.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- View all available dolls  
+- Browse dolls by category (Barbie, Bratz, etc.)  
+- View detailed information about a specific doll  
+- Create a post to sell a doll  
+- Edit or delete a post  
+- Create a user account and log in  
+- Edit user profile  
+- Send purchase requests  
+- View and manage personal posts  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Pages & Routes
 
-## Expanding the ESLint configuration
+- Home Page – `/` – Main landing page with navigation  
+- About Page – `/about` – Information about the AppDoll project  
+- Barbie Dolls – `/barbies` – List all Barbie dolls  
+- Bratz Dolls – `/bratzs` – List all Bratz dolls  
+- All Products – `/products` – List all dolls available for sale  
+- Product Details – `/products/:productId` – Detailed view of a specific doll  
+- Create Post – `/post-products` – Create a new product listing  
+- Edit Product – `/edit-product/:id` – Edit an existing product  
+- Login – `/login` – User authentication page  
+- Signup – `/signup` – User registration page  
+- Requests – `/request` – Page for purchase requests and communication  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Components
+
+The app uses reusable components:  
+
+- Navbar – Top navigation bar  
+- Footer – Page footer  
+- CreateProduct – Form to create a new product listing  
+- EditProduct – Edit existing products  
+- Request Component – Handle sending/editing purchase requests  
+
+## Client Structure
