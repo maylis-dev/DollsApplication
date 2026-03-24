@@ -4,7 +4,7 @@ import "./App.css";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import BarbiePage from "./pages/BarbiePage";
-import ProductsPage from "./pages/ProductsPage";
+import ProductDetailPage from "./pages/ProductDetailPage";
 import ProductsPage from "./pages/ProductsPage";
 import Loginpage from "./pages/Loginpage";
 import Signuppage from "./pages/Signuppage";
@@ -35,7 +35,7 @@ function App() {
         <Route path="/barbies" element={<BarbiePage />} />
         <Route path="/bratzs" element={<BratzPage />} />
         <Route path="/products" element={< ProductsPage />} />
-        <Route path="/products/:productId" element={<ProductDetailpage />} />
+        <Route path="/products/:productId" element={<ProductDetailPage />} />
         <Route path="/login" element={<Loginpage />} />
         <Route path="/signup" element={<Signuppage />} />
         
