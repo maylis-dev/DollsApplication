@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Aboutpage.css";
+import "./AboutPage.css";
 import Navbar from "../components/Navbar";
 import service from "../services/config.services";
 

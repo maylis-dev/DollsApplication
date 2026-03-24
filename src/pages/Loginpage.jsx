@@ -4,9 +4,9 @@ import axios from "axios";
 import Navbar from "../components/Navbar"
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
-import "./login.css"
+import "./Login.css"
 
-function Loginpage() {
+function LoginPage() {
   const { setIsLoggedIn, setLoggedUserId, setLoggedUserRole } =
     useContext(AuthContext);
   const navigate = useNavigate();
@@ -89,4 +89,4 @@ function Loginpage() {
 );
 }
 
-export default Loginpage;
+export default LoginPage;

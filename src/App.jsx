@@ -5,8 +5,6 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import BarbiePage from "./pages/BarbiePage";
 import ProductsPage from "./pages/ProductsPage";
-import Loginpage from "./pages/Loginpage";
-import Signuppage from "./pages/Signuppage";
 import Navbar from "./components/Navbar";
 import CreateProduct from "./pages/CreateProduct";
 import { AuthWrapper } from "./context/auth.context";
@@ -14,7 +12,8 @@ import EditProductsPage from "./pages/EditProduct";
 import BratzPage from "./pages/BratzPage";
 import Private from "./components/Private";
 import ProductDetailPage from "./pages/ProductDetailPage";
-
+import LoginPage from "./pages/Loginpage";
+import SignupPage from "./pages/SignupPage";
 
 function App() {
 
@@ -36,8 +35,8 @@ function App() {
         <Route path="/bratzs" element={<BratzPage />} />
         <Route path="/products" element={< ProductsPage />} />
         <Route path="/products/:productId" element={<ProductDetailPage />} />
-        <Route path="/login" element={<Loginpage />} />
-        <Route path="/signup" element={<Signuppage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
         
        <Route path="/edit-product/:id" element={<EditProductsPage />} />
        

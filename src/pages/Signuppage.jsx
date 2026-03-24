@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import service from "../services/config.services";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar"
-import "./signup.css"
-function Signuppage() {
+import "./Signup.css"
+function SignupPage() {
 // navige passe d une page aune autre avec use navgate met le le dans le try
     const navigate = useNavigate()
   const [email, setEmail] = useState("");
@@ -101,4 +101,4 @@ function Signuppage() {
 );
 }
 
-export default Signuppage;
+export default SignupPage;
