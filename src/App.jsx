@@ -12,7 +12,7 @@ import EditProductsPage from "./pages/EditProduct";
 import BratzPage from "./pages/BratzPage";
 import Private from "./components/Private";
 import ProductDetailPage from "./pages/ProductDetailPage";
-import LoginPage from "./pages/Loginpage";
+import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 
 function App() {
