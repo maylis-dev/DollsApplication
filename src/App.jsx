@@ -4,7 +4,7 @@ import "./App.css";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import BarbiePage from "./pages/BarbiePage";
-import ProductDetailpage from "./pages/ProductDetailpage";
+import ProductsPage from "./pages/ProductsPage";
 import ProductsPage from "./pages/ProductsPage";
 import Loginpage from "./pages/Loginpage";
 import Signuppage from "./pages/Signuppage";
