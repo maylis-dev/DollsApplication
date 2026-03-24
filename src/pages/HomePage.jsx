@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "./Homepage.css";
+import "./HomePage.css";
 import service from "../services/config.services";
 import image1 from "../img/image1.jpg";
 import image2 from "../img/image2.jpg";
