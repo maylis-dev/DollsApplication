@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import "./Dollspage.css";
 
-function Barbiepage() {
+function BarbiePage() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -73,4 +73,4 @@ function Barbiepage() {
   );
 }
 
-export default Barbiepage;
+export default BarbiePage;

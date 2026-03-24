@@ -7,7 +7,8 @@ function Navbar() {
   const [showCategories, setShowCategories] = useState(false);
 
   const navigate = useNavigate();
-  const { isLoggedIn, setIsLoggedIn, setLoggedUserId } = useContext(AuthContext);
+  const { isLoggedIn, setIsLoggedIn, setLoggedUserId } =
+    useContext(AuthContext);
 
   const categories = ["Dolls", "Bratz", "Barbie"];
 
@@ -30,7 +31,6 @@ function Navbar() {
     <div className="navigation">
       <div className="container">
         <div className="buttons">
-
           <div className="find">
             <button onClick={() => setShowCategories(!showCategories)}>
               Dolls
@@ -40,31 +40,30 @@ function Navbar() {
               <div className="dolls-menu">
                 {categories.map((cat) => (
                   <div key={cat} onClick={() => handleCategoryClick(cat)}>
-                    {cat}
+                    {cat} 
                   </div>
                 ))}
               </div>
             )}
           </div>
 
-         <button> <Link to="/">home</Link></button>
-          { isLoggedIn ? (
+        <button onClick={() => navigate("/")}>Home</button>
+          {isLoggedIn ? (
             <>
-              
-               <button><Link to="/about">about</Link></button>
-                <button onClick={handleLogout}>logout</button>
+              <button onClick={() => navigate("/about")}>About</button>
+              <button onClick={handleLogout}>logout</button>
             </>
           ) : (
             <>
-           <button> <Link to="/login">login</Link></button>
-          <button><Link to="/signup">signup</Link></button>
+              <button>
+                {" "}
+                <Link to="/login">login</Link>
+              </button>
+              <button>
+                <Link to="/signup">signup</Link>
+              </button>
             </>
           )}
-      
-         
-
-         
-
         </div>
       </div>
     </div>

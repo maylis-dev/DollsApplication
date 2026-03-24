@@ -4,9 +4,10 @@ import "./Aboutpage.css";
 import Navbar from "../components/Navbar";
 import service from "../services/config.services";
 
-function Aboutpage() {
+function AboutPage({user1}) {
   // État pour stocker les informations de l'utilisateur
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(user1 || null);
+ 
 
   // État pour stocker les produits
   const [products, setProducts] = useState([]);
@@ -23,6 +24,8 @@ function Aboutpage() {
     fetchUser();
     fetchProducts();
   }, []);
+
+  
 
   // Initialiser la valeur de l'input quand on commence à éditer
   useEffect(() => {
@@ -73,6 +76,7 @@ function Aboutpage() {
 
   // Affichage si les données ne sont pas encore chargées
   if (!user) return <h3>Loading...</h3>;
+  // !ajouter une condition si ca retourne pas 
 
   return (
     <>
@@ -83,12 +87,12 @@ function Aboutpage() {
         <div className="blocksinfo">
           <div className="photo">
             {/* Ici tu peux mettre une photo de l'utilisateur */}
-            <img src="" alt="" />
+            
           </div>
 
           <div className="info">
             {/* Username */}
-            <p className="usernameRow">
+            <div className="usernameRow">
               <strong>Username: </strong>
               {editingField === "username" ? (
                 <>
@@ -110,10 +114,10 @@ function Aboutpage() {
                   <button className="editButton" onClick={() => setEditingField("username")}>Edit</button>
                 </>
               )}
-            </p>
+            </div>
 
             {/* Email */}
-            <p>
+            <div>
               <strong>Email: </strong>
               {editingField === "email" ? (
                 <>
@@ -130,7 +134,7 @@ function Aboutpage() {
                  
                 </>
               )}
-            </p>
+            </div>
           </div>
         </div>
 
@@ -168,4 +172,4 @@ function Aboutpage() {
   );
 }
 
-export default Aboutpage;
+export default AboutPage;

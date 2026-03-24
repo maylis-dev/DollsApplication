@@ -7,7 +7,7 @@ import image1 from "../img/image1.jpg";
 import image2 from "../img/image2.jpg";
 import image3 from "../img/image3.jpg";
 
-function Homepage() {
+function HomePage() {
   const [dataOnlyForLoggedUsers, setData] = useState(null);
 
   useEffect(() => {
@@ -76,4 +76,4 @@ function Homepage() {
   );
 }
 
-export default Homepage;
+export default HomePage;

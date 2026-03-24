@@ -1,25 +1,25 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
-import Homepage from "./pages/Homepage";
-import Aboutpage from "./pages/Aboutpage";
-import Barbiepage from "./pages/Barbiepage";
-
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import BarbiePage from "./pages/Barbiepage"; 
 import ProductDetailpage from "./pages/ProductDetailpage";
-import Productspage from "./pages/Productspage";
+import ProductsPage from "./pages/ProductsPage";
 import Loginpage from "./pages/Loginpage";
 import Signuppage from "./pages/Signuppage";
-import Requestpage from "./pages/Requestpage";
 import Navbar from "./components/Navbar";
 import CreateProduct from "./pages/CreateProduct";
 import { AuthWrapper } from "./context/auth.context";
 import EditProductsPage from "./pages/EditProduct";
-import Bratzpage from "./pages/Bratzpage";
+import BratzPage from "./pages/BratzPage";
+import Private from "./components/Private";
 
 
 function App() {
+
+  
+   
   return (
     <>
       <Routes>
@@ -28,17 +28,17 @@ function App() {
           element={
             <>
               <Navbar />
-              <Homepage />
+              <HomePage />
             </>
           }/>
-        <Route path="/about" element={<Aboutpage />} />
-        <Route path="/barbies" element={<Barbiepage />} />
-        <Route path="/bratzs" element={<Bratzpage />} />
-        <Route path="/products" element={< Productspage />} />
+        <Route path="/about" element={<Private><AboutPage  user1={'user1'}/></Private>} />
+        <Route path="/barbies" element={<BarbiePage />} />
+        <Route path="/bratzs" element={<BratzPage />} />
+        <Route path="/products" element={< ProductsPage />} />
         <Route path="/products/:productId" element={<ProductDetailpage />} />
         <Route path="/login" element={<Loginpage />} />
         <Route path="/signup" element={<Signuppage />} />
-        <Route path="/request" element={<Requestpage />} />
+        
        <Route path="/edit-product/:id" element={<EditProductsPage />} />
        
        <Route path="/post-products" element={<CreateProduct />} />

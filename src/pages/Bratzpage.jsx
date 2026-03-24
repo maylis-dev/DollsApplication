@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import "./Dollspage.css";
 
-function Bratzpage() {
+function BratzPage() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -73,4 +73,4 @@ function Bratzpage() {
   );
 }
 
-export default Bratzpage;
+export default BratzPage;

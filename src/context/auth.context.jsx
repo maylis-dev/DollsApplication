@@ -39,7 +39,7 @@ function AuthWrapper(props) {
       //   }
       // })
       const response = await service.get(`/auth/verify`); // already includes the token, as per the service
-      console.log(response);
+      //console.log(response); 
 
       setIsLoggedIn(true);
       setLoggedUserId(response.data.payload._id);
@@ -48,7 +48,8 @@ function AuthWrapper(props) {
       setIsAuthenticatingUser(false);
 
     } catch (error) {
-      console.log(error);
+      //console.log(error);
+      //! ajouter une erreur 
 
       // we assume that if the verify call failed, the token was invalid or non existing
       setIsLoggedIn(false);

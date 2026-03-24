@@ -25,6 +25,7 @@ function CommentsSection({ productId }) {
     try {
       const res = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/comments`, {
         params: { productId },
+          headers: { Authorization: `Bearer ${token}` }, // add this line //! a enlever si jamais
       });
       setComments(res.data);
     } catch (e) {

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import "./Dollspage.css";
 
-function Productspage() {
+function ProductsPage() {
   const [allProducts, setAllProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All"); // Default: show all
   const [loading, setLoading] = useState(true);
@@ -21,7 +21,7 @@ function Productspage() {
       const response = await axios.get(
         `${import.meta.env.VITE_SERVER_URL}/api/products${query}`,
       );
-      console.log("All products fetched:", response.data); // 🔍 debug
+      //console.log("All products fetched:", response.data); // 🔍 debug
       setAllProducts(response.data);
     } catch (error) {
       console.error("Failed to fetch products:", error);
@@ -96,4 +96,4 @@ function Productspage() {
 );
 }
 
-export default Productspage;
+export default ProductsPage;

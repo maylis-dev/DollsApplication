@@ -21,8 +21,8 @@ function ProductDetailpage() {
           `${import.meta.env.VITE_SERVER_URL}/api/products/${productId}`
         );
         setProduct(response.data);
-        console.log("maylis")
-     console.log("Product fetched from backend:", response.data); // ✅
+        //console.log("maylis")
+     //console.log("Product fetched from backend:", response.data); // ✅
       } catch (error) {
         console.error("Failed to fetch product:", error);
       } finally {
@@ -34,7 +34,7 @@ function ProductDetailpage() {
 
   if (loading) return <h3>Loading...</h3>;
   if (!product) return <h3>Product not found.</h3>;
-  console.log(product);
+  //console.log(product);
   
 
 return (
