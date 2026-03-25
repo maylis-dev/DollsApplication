@@ -8,12 +8,14 @@ import ProductsPage from "./pages/ProductsPage";
 import Navbar from "./components/Navbar";
 import CreateProduct from "./pages/CreateProduct";
 import { AuthWrapper } from "./context/auth.context";
+
 import EditProductsPage from "./pages/EditProduct";
 import BratzPage from "./pages/BratzPage";
 import Private from "./components/Private";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
+
 
 function App() {
 
@@ -34,13 +36,11 @@ function App() {
         <Route path="/barbies" element={<BarbiePage />} />
         <Route path="/bratzs" element={<BratzPage />} />
         <Route path="/products" element={< ProductsPage />} />
+         <Route path="/edit-product/:id" element={<EditProductsPage />} />
         <Route path="/products/:productId" element={<ProductDetailPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
-        
-       <Route path="/edit-product/:id" element={<EditProductsPage />} />
-       
-       <Route path="/post-products" element={<CreateProduct />} />
+       <Route path="/post-products" element={<Private><CreateProduct /></Private>} />
       </Routes>
       <footer/>
     </>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import CommentCard from "./CommentCard";
 
-// Fonction pour décoder le payload JWT
 function parseJwt(token) {
   try {
     return JSON.parse(atob(token.split(".")[1]));
@@ -11,25 +11,23 @@ function parseJwt(token) {
 }
 
 function CreateComments({ productId }) {
-  const [commentText, setCommentText] = useState("");
   const [comments, setComments] = useState([]);
+  const [commentText, setCommentText] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const token = localStorage.getItem("authToken");
-
-  // Extraire l'ID utilisateur depuis le token
   const userId = token ? parseJwt(token)?._id : null;
 
-  // Fetch comments
+  // Fetch comments for this product
   const getComments = async () => {
     try {
       const res = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/comments`, {
         params: { productId },
-          headers: { Authorization: `Bearer ${token}` }, // add this line //! a enlever si jamais
+        headers: { Authorization: `Bearer ${token}` },
       });
       setComments(res.data);
-    } catch (e) {
-      console.log("Error fetching comments:", e);
+    } catch (err) {
+      console.error("Error fetching comments:", err);
     }
   };
 
@@ -37,7 +35,7 @@ function CreateComments({ productId }) {
     if (productId) getComments();
   }, [productId]);
 
-  // Ajouter un commentaire
+  // Add a comment
   const handleAddComment = async () => {
     if (!commentText.trim()) return;
 
@@ -48,23 +46,23 @@ function CreateComments({ productId }) {
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
-      setComments((prev) => [...prev, res.data]);
+      setComments((prev) => [...prev, res.data]); // update state
       setCommentText("");
       setIsModalOpen(false);
-    } catch (e) {
-      console.log("Error adding comment:", e);
+    } catch (err) {
+      console.error("Error adding comment:", err);
     }
   };
 
-  // Supprimer un commentaire
+  // Delete a comment (called by CommentCard)
   const handleDelete = async (commentId) => {
     try {
       await axios.delete(`${import.meta.env.VITE_SERVER_URL}/api/comments/${commentId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setComments((prev) => prev.filter((c) => c._id !== commentId));
-    } catch (e) {
-      console.log("Error deleting comment:", e);
+    } catch (err) {
+      console.error("Error deleting comment:", err);
     }
   };
 
@@ -73,14 +71,12 @@ function CreateComments({ productId }) {
       <h3>Comments ({comments.length})</h3>
 
       {comments.map((c) => (
-        <div key={c._id} className="comment-item">
-          <b>{c.username?.username || "User"}:</b> {c.content}
-
-          {/* Delete seulement pour l'auteur */}
-          {String(c.username?._id) === String(userId) && (
-            <button onClick={() => handleDelete(c._id)}>Delete</button>
-          )}
-        </div>
+        <CommentCard
+          key={c._id}
+          comment={c}
+          currentUserId={userId}
+          onDelete={handleDelete} // child can delete comment
+        />
       ))}
 
       <button onClick={() => setIsModalOpen(true)}>Write a Comment</button>
@@ -93,6 +89,7 @@ function CreateComments({ productId }) {
               rows={4}
               value={commentText}
               onChange={(e) => setCommentText(e.target.value)}
+              placeholder="Type your comment here..."
             />
             <div className="modal-actions">
               <button

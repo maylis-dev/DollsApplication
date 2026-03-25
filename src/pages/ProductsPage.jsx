@@ -21,10 +21,10 @@ function ProductsPage() {
       const response = await axios.get(
         `${import.meta.env.VITE_SERVER_URL}/api/products${query}`,
       );
-      //console.log("All products fetched:", response.data); // 🔍 debug
+      console.log("All products fetched:", response.data); // 🔍 debug
       setAllProducts(response.data);
     } catch (error) {
-      console.error("Failed to fetch products:", error);
+      console.error("Failed to fetch products:", error.response.data.message);
     } finally {
       setLoading(false);
     }
@@ -39,6 +39,7 @@ function ProductsPage() {
   if (loading) {
     return <h3>Loading...</h3>;
   }
+   
 
   return (
   <>
