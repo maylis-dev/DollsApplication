@@ -96,20 +96,20 @@ align-items: center;
 }
 
 .textDetails a {
-  color: black;           /* Texte noir */
-  text-decoration: none;  /* Supprime le soulignement */
+  color: black;           
+  text-decoration: none;  
 }
 
 .textDetails a:hover {
-  color: #333;            /* Reste sombre au survol */
+  color: #333;            
 }
 .navigation a {
   color: black; 
-   font-weight: bold;          /* texte noir */
-  text-decoration: none;  /* enlève le soulignement */
+   font-weight: bold;          
+  text-decoration: none;  
 }
 
 .navigation a:hover {
-  color: #333;            /* reste sombre au survol */
+  color: #333;           
 }
-/* --- MEDIA QUERIES pour iPhone / petits écrans --- */
+

@@ -33,13 +33,8 @@ function AuthWrapper(props) {
     // const token = localStorage.getItem("authToken")
 
     try {
-      // const response = await service.get(`/auth/verify`, {
-      //   headers: {
-      //     authorization: `Bearer ${token}`
-      //   }
-      // })
-      const response = await service.get(`/auth/verify`); // already includes the token, as per the service
-      //console.log(response); 
+     
+      const response = await service.get(`/auth/verify`); 
 
       setIsLoggedIn(true);
       setLoggedUserId(response.data.payload._id);
@@ -49,7 +44,7 @@ function AuthWrapper(props) {
 
     } catch (error) {
       //console.log(error);
-      //! ajouter une erreur 
+    
 
       // we assume that if the verify call failed, the token was invalid or non existing
       setIsLoggedIn(false);
