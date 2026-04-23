@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import CommentCard from "./CommentCard";
-
+import "./CreateComments.css";
 function parseJwt(token) {
   try {
     return JSON.parse(atob(token.split(".")[1]));
@@ -68,7 +68,10 @@ function CreateComments({ productId }) {
 
   return (
     <div className="comments-section">
-      <h3>Comments ({comments.length})</h3>
+      <div className="headerComments">
+        <h3>Comments</h3>
+        <span className="comment-count">{comments.length}</span>
+      </div>
 
       {comments.map((c) => (
         <CommentCard

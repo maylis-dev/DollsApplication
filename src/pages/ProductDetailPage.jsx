@@ -4,6 +4,7 @@ import axios from "axios";
 import Navbar from "../components/Navbar";
 import CreateComments from "../components/CreateComments";
 import "./ProductDetail.css";
+import "../components/CreateComments.css";
 
 function ProductDetailPage() {
   const { productId } = useParams();
@@ -21,8 +22,8 @@ function ProductDetailPage() {
           `${import.meta.env.VITE_SERVER_URL}/api/products/${productId}`,
         );
         setProduct(response.data);
-       // console.log("maylis")
-       // console.log("Product fetched from backend:", response.data); // ✅
+        // console.log("maylis")
+        // console.log("Product fetched from backend:", response.data); // ✅
       } catch (error) {
         console.error("Failed to fetch product:", error);
       } finally {
@@ -78,11 +79,7 @@ function ProductDetailPage() {
         {/* IMAGE BLOCK */}
         <div className="blockImage">
           {product.imageUrl ? (
-            <img
-              src={product.imageUrl}
-              alt={product.name}
-              style={{ maxWidth: "300px" }}
-            />
+            <img src={product.imageUrl} alt={product.name} />
           ) : (
             <p>No image available</p>
           )}
@@ -91,35 +88,45 @@ function ProductDetailPage() {
         {/* TEXT DETAILS */}
         <div className="textDetails">
           {/* Product Name */}
-          <div className="text-block name">
+          <div className="text-block-name">
             <h1>{product.name}</h1>
           </div>
 
           {/* Seller, Stock, Category in ONE block */}
-          <div className="text-block productinfo">
-            <p>Seller: {product.seller?.username || "N/A"}</p>
-            <p>Stock: {product.stock}</p>
-            <p>Category: {product.category || "N/A"}</p>
+          <div className="text-block-productinfo">
+            <p className="rowInfo">
+              Seller <span>{product.seller?.username || "N/A"}</span>
+            </p>
+            <p className="rowInfo">
+              Stock <span>{product.stock}</span>
+            </p>
+            <p className="rowInfo">
+              Category <span>{product.category || "N/A"}</span>
+            </p>
           </div>
 
           {/* Price */}
-          <div className="text-block price">
-            <p>Price: ${product.salePrice}</p>
+          <div className="text-block-price">
+            <p>
+              Price <span>{product.salePrice} $</span>
+            </p>
           </div>
 
           {/* Email / Request */}
           {isLoggedIn && (
-            <div className="text-block askrequest">
-              <p>Email: {product.seller?.email || "N/A"}</p>
+            <div className="text-block-askrequest">
+              <p>
+                Email: <span> {product.seller?.email || "N/A"}</span>
+              </p>
             </div>
           )}
 
           {/* Comments Section */}
-     {isLoggedIn && (
-  <div className="text-block comments-section">
-    <CreateComments productId={productId} />
-  </div>
-)}
+          {isLoggedIn && (
+            <div className="text-block6comments-section">
+              <CreateComments productId={productId} />
+            </div>
+          )}
         </div>
       </div>
     </>

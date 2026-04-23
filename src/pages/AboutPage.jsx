@@ -4,10 +4,9 @@ import "./AboutPage.css";
 import Navbar from "../components/Navbar";
 import service from "../services/config.services";
 
-function AboutPage({user1}) {
+function AboutPage({ user1 }) {
   // État pour stocker les informations de l'utilisateur
   const [user, setUser] = useState(user1 || null);
- 
 
   // État pour stocker les produits
   const [products, setProducts] = useState([]);
@@ -24,8 +23,6 @@ function AboutPage({user1}) {
     fetchUser();
     fetchProducts();
   }, []);
-
-  
 
   // Initialiser la valeur de l'input quand on commence à éditer
   useEffect(() => {
@@ -67,7 +64,7 @@ function AboutPage({user1}) {
       const data = { [field]: editValue };
       const response = await service.put("/user", data);
       setUser(response.data); // mettre à jour l'état local
-      setEditingField(null);  // sortir du mode édition
+      setEditingField(null); // sortir du mode édition
     } catch (err) {
       console.error(err);
       alert("Error updating information");
@@ -76,7 +73,7 @@ function AboutPage({user1}) {
 
   // Affichage si les données ne sont pas encore chargées
   if (!user) return <h3>Loading...</h3>;
-  // !ajouter une condition si ca retourne pas 
+  // !ajouter une condition si ca retourne pas
 
   return (
     <>
@@ -84,86 +81,104 @@ function AboutPage({user1}) {
       <Navbar />
 
       <div className="containerAbout">
-        <div className="blocksinfo">
-          <div className="photo">
-            {/* Ici tu peux mettre une photo de l'utilisateur */}
-            
+        <div className="blocksinffo">
+          <div className="infoBlock">
+            <div className="photo">
+              {/* Ici tu peux mettre une photo de l'utilisateur */}
+            </div>
+            <div className="info">
+              {/* Username */}
+              <div className="usernameRow">
+                {editingField === "username" ? (
+                  <>
+                    <input
+                      className="editInput"
+                      type="text"
+                      value={editValue}
+                      onChange={(e) => setEditValue(e.target.value)}
+                    />
+                    <div className="editButtonsColumn">
+                      <button onClick={() => handleSave("username")}>
+                        Save
+                      </button>
+                      <button onClick={() => setEditingField(null)}>
+                        Cancel
+                      </button>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <span className="usernameText"> {user.username} </span>
+                  </>
+                )}
+              </div>
+              {/* Email */}
+              <div className="emailType">
+                {editingField === "email" ? (
+                  <>
+                    <input
+                      type="email"
+                      value={editValue}
+                      onChange={(e) => setEditValue(e.target.value)}
+                    />
+                  </>
+                ) : (
+                  <>
+                    {" "}
+                    <span className="emailText"> {user.email} </span>{" "}
+                  </>
+                )}
+              </div>
+            </div>
           </div>
-
-          <div className="info">
-            {/* Username */}
-            <div className="usernameRow">
-              <strong>Username: </strong>
-              {editingField === "username" ? (
-                <>
-                  <input
-                  className="editInput"
-                    type="text"
-                    value={editValue}
-                    onChange={(e) => setEditValue(e.target.value)}
-                  />
-                  <div className="editButtonsColumn">
-                  <button onClick={() => handleSave("username")}>Save</button>
-                  <button onClick={() => setEditingField(null)}>Cancel</button>
-                </div>
-                </>
-                
-              ) : (
-                <>
-                 <span className="usernameText"> {user.username}{" "}</span>
-                  <button className="editButton" onClick={() => setEditingField("username")}>Edit</button>
-                </>
-              )}
-            </div>
-
-            {/* Email */}
-            <div>
-              <strong>Email: </strong>
-              {editingField === "email" ? (
-                <>
-                  <input
-                    type="email"
-                    value={editValue}
-                    onChange={(e) => setEditValue(e.target.value)}
-                  />
-                 
-                </>
-              ) : (
-                <>
-                  {user.email}{" "}
-                 
-                </>
-              )}
-            </div>
+          <div className="buttonEdit">
+            <button
+              className="editButton"
+              onClick={() => setEditingField("username")}
+            >
+              Edit
+            </button>
           </div>
         </div>
 
         {/* Section pour afficher les créations de l'utilisateur */}
         <div className="mydolls">
-         
           <div className="mydollslist">
             <div className="myCreation">
-              <p>My Creations Here</p>
+              <div className="myCreationHeader">
+                <p>My Creations</p>
 
-              {/* Bouton pour créer un nouveau produit */}
-              <button onClick={() => navigate("/post-products")}>Create Product</button>
-
-              {/* Affichage des produits créés par l'utilisateur */}
-              {products
-                .filter((product) => product.seller === user._id)
-                .map((product) => (
-                  <div key={product._id} className="productCard">
-                    <h4>{product.name}</h4>
-                    {product.image && (
-                      <img src={product.image} alt={product.name} width="120" />
-                    )}
-
-                    {/* Bouton pour éditer le produit */}
-                    <button onClick={() => navigate(`/edit-product/${product._id}`)}>
-                      Edit
-                    </button>
-                  </div>
-                ))}
+                {/* Bouton pour créer un nouveau produit */}
+                <button onClick={() => navigate("/post-products")}>
+                  <span>Create Product</span>
+                </button>
+              </div>
+              <div className="">
+              <div className="myCreationList">
+                {/* Affichage des produits créés par l'utilisateur */}
+                {products
+                  .filter((product) => product.seller === user._id)
+                  .map((product) => (
+                    <div key={product._id} className="productCard">
+                      <div className="productInfo">
+                      {product.imageUrl && (
+                        <img src={product.imageUrl} alt={product.name} />
+                      )}
+                      <div className="infosse">
+                        <h4>{product.name}</h4>
+                        <p>{product.category}</p>
+                      </div>
+                      </div>
+                      {/* Bouton pour éditer le produit */}
+                      <button
+                        onClick={() => navigate(`/edit-product/${product._id}`)}
+                      >
+                        Edit
+                      </button>
+                    </div>
+                  ))}
+              </div>
+              </div>
             </div>
           </div>
         </div>

@@ -1,15 +1,26 @@
 /* Container for the entire form */
 .products {
- 
-  width: 70vw;
-  margin: 80px auto 20px;
+  width: 35vw;
+
   padding: 30px;
-  background-color: #fdf2f8;
-  border-radius: 12px;
+  margin-top: 35px;
+  background-color: white;
+  border-radius: 32px;
   display: flex;
+  align-items: center;
   flex-direction: column;
   gap: 25px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.category select option:disabled {
+  color: grey;
+  font-style: italic;
+}
+
+.category select option:not(:disabled) {
+  color: #333;
 }
 
 /* Form section container */
@@ -17,6 +28,13 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.titledescription h2 {
+  margin: 0;
+  color: palevioletred;
+  font-family: "Quicksand", sans-serif;
 }
 
 /* Input fields */
@@ -26,10 +44,13 @@
 .category select {
   padding: 12px;
   font-size: 16px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  transition: border 0.3s, box-shadow 0.3s;
-  width: 100%;
+  border-radius: 28px;
+  background-color: #fff0f6;
+  border: 2px solid palevioletred;
+  transition:
+    border 0.3s,
+    box-shadow 0.3s;
+  width: 25vw;
 }
 
 .names input:focus,
@@ -38,22 +59,34 @@
 .category select:focus {
   outline: none;
   border-color: #f3a5e0;
-  box-shadow: 0 0 5px rgba(243, 165, 224, 0.5);
+
+  width: 25vw;
 }
 
+.input [type="number"]::-webkit-inner-spin-button,
+.input [type="number"]::-webkit-outer-spin-button {
+  background-color: tomato;
+  border: 1px solid #e54040;
+}
 /* Button styling */
-.askrequests button {
+.createRequests button {
   padding: 12px;
-  border-radius: 8px;
+  border-radius: 38px;
   border: none;
-  background-color: rgb(243, 165, 224);
+  background-color: palevioletred;
   color: white;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
+  transition:
+    background 0.3s,
+    transform 0.2s;
+}
+.createRequests {
+  font-family: "Quicksand", sans-serif;
+  font-size: 12px;
 }
 
-.askrequests button:hover {
+.createRequests button:hover {
   background-color: rgb(220, 140, 200);
   transform: translateY(-2px);
 }
@@ -67,19 +100,96 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Label for file input */
-.textDetailss label {
-  font-weight: 500;
-  margin-bottom: 5px;
-  display: block;
+/* File input styling */
+.textDetailss input[type="file"] {
+  font-size: 12px;
+  border-radius: 28px;
+  cursor: pointer;
+  font-family: "Quicksand", sans-serif;
+  color: #666;
 }
 
+.textDetailss input[type="file"]:focus {
+  outline: none;
+  border-color: #f3a5e0;
+  box-shadow: 0 0 5px rgba(243, 165, 224, 0.5);
+}
+
+.textDetailss input[type="file"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #f5f5f5;
+}
+
+/* Custom file input button appearance */
+.textDetailss input[type="file"]::-webkit-file-upload-button {
+  background-color: palevioletred;
+  color: white;
+  border: none;
+
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  margin-right: 12px;
+  transition:
+    background-color 0.3s,
+    transform 0.2s;
+}
+
+.textDetailss input[type="file"]::-webkit-file-upload-button:hover {
+  background-color: rgb(220, 140, 200);
+  transform: translateY(-1px);
+}
+
+.textDetailss input[type="file"]::-moz-file-upload-button {
+  background-color: palevioletred;
+  color: white;
+  border: none;
+
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  margin-right: 12px;
+  transition:
+    background-color 0.3s,
+    transform 0.2s;
+}
+
+.textDetailss input[type="file"]::-moz-file-upload-button:hover {
+  background-color: rgb(220, 140, 200);
+  transform: translateY(-1px);
+}
+
+.category select {
+  background-color: #fff0f6;
+  border: 2px solid palevioletred;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 28px;
+  transition:
+    border 0.3s,
+    box-shadow 0.3s;
+  width: 25vw;
+}
+
+.category select :disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.category select {
+  color: grey;
+}
+
+.category select.filled {
+  color: #333;
+}
 /* Responsive design */
-@media screen and (max-width: 480px) {
+
+@media (max-width: 880px) and (min-width: 1200px) {
   .products {
-    margin: 60px 10px 20px;
-    padding: 20px;
-  
+    width: 45vw;
   }
 
   .names input,
@@ -87,8 +197,66 @@
   .stock input,
   .category select,
   .askrequests button {
-    font-size: 14px;
-    padding: 10px;
+    width: 35vw;
+  }
+
+  .names input:focus,
+  .prices input:focus,
+  .stock input:focus,
+  .category select:focus {
+    outline: none;
+    border-color: #f3a5e0;
+
+    width: 35vw;
   }
 }
 
+@media screen and (max-width: 580px) {
+  .products {
+    width: 45vw;
+  }
+
+  .names input,
+  .prices input,
+  .stock input,
+  .category select,
+  .askrequests button {
+    width: 35vw;
+  }
+
+  .names input:focus,
+  .prices input:focus,
+  .stock input:focus,
+  .category select:focus {
+    outline: none;
+    border-color: #f3a5e0;
+
+    width: 35vw;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .products {
+    margin: 20px 0;
+ 
+    width: 55vw;
+  }
+
+  .names input,
+  .prices input,
+  .stock input,
+  .category select,
+  .askrequests button {
+ width: 45vw;
+}
+.names input:focus,
+  .prices input:focus,
+  .stock input:focus,
+  .category select:focus {
+    outline: none;
+    border-color: #f3a5e0;
+
+    width: 45vw;
+  }
+
+}

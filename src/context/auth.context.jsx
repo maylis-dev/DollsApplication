@@ -23,7 +23,7 @@ function AuthWrapper(props) {
     loggedUserRole, //add user
       setLoggedUserRole
   };
-
+//execution 
   useEffect(() => {
     // check the token validation when the page loads for the first time
     authenticateUser();

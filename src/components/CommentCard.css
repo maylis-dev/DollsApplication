@@ -1,0 +1,28 @@
+.comment-item {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  padding: 15px;
+  border-radius: 20px;
+  border: solid 2px #ffc0cb;
+  font-family: "Quicksand", sans-serif;
+  font-size: 12px;
+  width: 15vw;
+  justify-content: space-between;
+  align-items: center;
+ 
+
+}
+.button {
+  padding: 2px 2px;
+  border-radius: 20px;
+  border: none;
+  background-color: #ff6f91;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+  font-family: "Quicksand", sans-serif;
+  font-size: 8px;
+}
+

@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import service from "../services/config.services";
 import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar"
-import "./Signup.css"
+import Navbar from "../components/Navbar";
+import "./Signup.css";
 function SignupPage() {
-// navige passe d une page aune autre avec use navgate met le le dans le try
-    const navigate = useNavigate()
+  // navige passe d une page aune autre avec use navgate met le le dans le try
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -23,13 +23,11 @@ function SignupPage() {
 
     //conact backend finally
 
-
     // manuel validation wuhout backendn(optionl ca rle backend le fait )
 
-    if (!username || !email || !password){
-        setErrorMessage("all field are required")
-        return
-        
+    if (!username || !email || !password) {
+      setErrorMessage("all field are required");
+      return;
     }
     const body = {
       email,
@@ -40,11 +38,10 @@ function SignupPage() {
     console.log(body);
 
     try {
-      const response = await service.post(  `/auth/signup`, body,);
+      const response = await service.post(`/auth/signup`, body);
       console.log("user register", response); // HOULD MATCH THE ROUTE IF ITS A POST IN THE BACK YOU POST POST
 
-      navigate("/login")
-
+      navigate("/login");
     } catch (error) {
       console.log(error);
       if (error.response.status === 400) {
@@ -54,51 +51,65 @@ function SignupPage() {
     }
   };
 
- return (
-  <div className="signup-container">
-    
-    <Navbar/>
+  return (
+    <div className="signup-container">
+      <Navbar />
 
-    <form onSubmit={handleSignup} className="signup-form">
-      <h1 className="signup-title">Signup</h1>
-      <label className="signup-label">Email:</label>
-      <input
-        className="signup-input"
-        type="email"
-        name="email"
-        value={email}
-        required
-        onChange={handleEmailChange}
-      />
+      <form onSubmit={handleSignup} className="signup-form">
+        <div className="signup-title">
+          <h1>DollApp✦</h1>
+          <p>Welcome to the DollApp community!🎀</p>
+          <h1>Signup</h1>
+        </div>
 
-      <label className="signup-label">Username:</label>
-      <input
-        className="signup-input"
-        type="text"
-        name="username"
-        value={username}
-        onChange={handleUsernameChange}
-      />
+        <div className="signup-info">
+          <label className="signup-label">Email:</label>
+          <input
+            className="signup-input"
+            type="email"
+            name="email"
+            value={email}
+            required
+            onChange={handleEmailChange}
+            placeholder="your @mail"
+          />
 
-      <label className="signup-label">Password:</label>
-      <input
-        className="signup-input"
-        type="password"
-        name="password"
-        value={password}
-        onChange={handlePasswordChange}
-      />
+          <label className="signup-label">Username:</label>
+          <input
+            className="signup-input"
+            type="text"
+            name="username"
+            value={username}
+            onChange={handleUsernameChange}
+            placeholder="your username"
+          />
 
-      <button type="submit" className="signup-button">Signup</button>
+          <label className="signup-label">Password:</label>
+          <input
+            className="signup-input"
+            type="password"
+            name="password"
+            value={password}
+            onChange={handlePasswordChange}
+            placeholder="your password"
+          />
 
-      {errorMessage && <p className="signup-error">{errorMessage}</p>}
+          <button type="submit" className="signup-button">
+            Signup
+          </button>
+        </div>
 
-      <Link to="/login" className="login-link">
-        <button className="login-button">Already signed up? Login</button>
-      </Link>
-    </form>
-  </div>
-);
+        {errorMessage && <p className="signup-error">{errorMessage}</p>}
+
+        <div className="loginn-button">
+          Already signed up?{" "}
+          <Link to="/login" className="loginn-link">
+            Login
+          </Link>
+        </div>
+      </form>
+    </div>
+  );
 }
 
 export default SignupPage;

@@ -1,59 +1,106 @@
+.Editcontainer {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px 60px;
+}
+
 .edit-product-page {
-  width: 50vw; 
-  margin: 80px auto 20px;
-  padding: clamp(15px, 3vw, 25px);  /* padding grows slightly on larger screens */
-  background-color:pink;
-  border-radius: 8px;
-  
- 
+  width: 40vw;
+ margin-top: 30px;
+  padding: 32px;
+  background-color: white;
+  border-radius: 32px;
+  box-shadow: 0 12px 30px pink;
+  border: 1px solid rgba(255, 111, 145, 0.18);
 }
 
 .edit-product-page h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  color: #5a3d4b;
+  font-family: "Paytone One", cursive;
+  font-size: clamp(1.8rem, 2vw, 2.2rem);
 }
 
 .edit-product-form {
-
   display: flex;
   flex-direction: column;
-
-  gap: clamp(10px, 2vw, 18px); /* responsive spacing */
+  gap: 18px;
 }
 
-.edit-product-form input {
-  padding: clamp(8px, 2vw, 12px);
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: clamp(14px, 2vw, 16px);
+.edit-product-form input,
+.edit-product-form select {
+  padding: 14px 40px 14px 16px;
+  border-radius: 28px;
+  border: 2px solid palevioletred;
+  background-color: #fff0f6;
+  font-size: 1rem;
+  font-family: "Quicksand", sans-serif;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.edit-product-form select {
+  padding-right: 24px;
+}
+
+.edit-product-form input:focus,
+.edit-product-form select:focus {
+  outline: none;
+  border-color: #ff8fab;
+  box-shadow: 0 0 8px rgba(255, 143, 171, 0.25);
 }
 
 .edit-product-form button {
-  padding: clamp(8px, 2vw, 12px);
-  border-radius: 5px;
+  padding: 14px 18px;
+  border-radius: 28px;
   border: none;
-  background-color: rgb(243, 165, 224);
+  background-color: palevioletred;
   color: white;
-  font-weight: bold;
+  font-weight: 700;
   cursor: pointer;
-  transition: background 0.3s;
-  font-size: clamp(14px, 2vw, 16px);
+  transition: background 0.3s, transform 0.2s;
+  font-family: "Quicksand", sans-serif;
 }
 
 .edit-product-form button:hover {
   background-color: rgb(220, 140, 200);
+  transform: translateY(-1px);
 }
 
-.edit-product-form img {
-  border-radius: 5px;
-  margin: 10px 0;
-  max-width: 100%;
-  height: auto;
+.edit-product-form button[type="button"] {
+  background-color: #ff6f91;
 }
 
-/* extra small screens */
-@media (max-width: 480px) {
-  .edit-product-page {
-    margin: 60px 10px 20px;
+.edit-product-form button[type="button"]:hover {
+  background-color: #e35275;
+}
+
+.edit-product-form select option:disabled {
+  color: grey;
+  font-style: italic;
+}
+
+
+
+
+@media (max-width: 580px)  {
+  .Editcontainer {
+    width: 60vw;
   }
+  .edit-product-page {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .Editcontainer {
+    
+  }
+
+  .edit-product-page {
+    width: 100%;
+  
+  }
+
+
 }

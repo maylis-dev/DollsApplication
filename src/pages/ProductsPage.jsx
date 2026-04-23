@@ -39,62 +39,73 @@ function ProductsPage() {
   if (loading) {
     return <h3>Loading...</h3>;
   }
-   
 
   return (
-  <>
-    <Navbar />
+    <>
+      <Navbar />
 
-    <div className="containerDolls">
-      <div className="blockDolls">
-        {/* Titre et filtres */}
-        <div className="titre">
-          <h1>All Dolls</h1>
+      <div className="containerDolls">
+        <div className="blockDolls">
+          {/* Titre et filtres */}
+          <div className="titre">
+            <h1>
+              All <span>Dolls</span>
+            </h1>
+            <p>Discover our amazing collection of dolls!</p>
 
-          <div className="filter-buttons">
-            {["All", "Barbie", "Bratz"].map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={selectedCategory === cat ? "active filter-btn" : "filter-btn"}
-              >
-                {cat}
-              </button>
-            ))}
+            <div className="filter-buttons">
+              {["All", "Barbie", "Bratz"].map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={
+                    selectedCategory === cat
+                      ? "active filter-btn"
+                      : "filter-btn"
+                  }
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Liste des produits */}
+          <div className="listeDolls">
+            {filteredProducts.length === 0 ? (
+              <p className="no-products">
+                No products found for this category.
+              </p>
+            ) : (
+              filteredProducts.map((product) => (
+                <div className="purchaseDolls doll-card" key={product._id}>
+                  {/* Nom */}
+
+                  {/* Image */}
+                  {product.imageUrl && (
+                    <img
+                      src={product.imageUrl}
+                      alt={product.name}
+                      className="dollImage"
+                    />
+                  )}
+
+                  <div className="secondBlock">
+                  {/* Titre */}
+                  <h3 className="doll-name">{product.name}</h3>
+                  {/* Bouton demander */}
+                  <Link to={`/products/${product._id}`}>
+                    <button className="request-btn">Request</button>
+                  </Link>
+                  </div>
+                </div>
+              ))
+            )}
           </div>
         </div>
-
-        {/* Liste des produits */}
-        <div className="listeDolls">
-          {filteredProducts.length === 0 ? (
-            <p className="no-products">No products found for this category.</p>
-          ) : (
-            filteredProducts.map((product) => (
-              <div className="purchaseDolls doll-card" key={product._id}>
-                {/* Nom */}
-                <h3 className="doll-name">{product.name}</h3>
-
-                {/* Image */}
-                {product.imageUrl && (
-                  <img
-                    src={product.imageUrl}
-                    alt={product.name}
-                    className="dollImage"
-                  />
-                )}
-
-                {/* Bouton demander */}
-                <Link to={`/products/${product._id}`}>
-                  <button className="request-btn">Request</button>
-                </Link>
-              </div>
-            ))
-          )}
-        </div>
       </div>
-    </div>
-  </>
-);
+    </>
+  );
 }
 
 export default ProductsPage;

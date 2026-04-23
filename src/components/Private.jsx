@@ -5,10 +5,10 @@ import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";  
 
 function Private(props) {
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn } = useContext(AuthContext);//écupère les données du contexte AuthContext.
 
   if (isLoggedIn) {
-    return props.children;
+    return props.children;//affiche composant s 
   } else {
     return <Navigate to="/login" />;
   }

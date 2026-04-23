@@ -1,40 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Paytone+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Paytone+One&family=Quicksand:wght@300..700&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-family: "Paytone One", sans-serif;
+  font-family: "quicksand-regular", sans-serif;
+}
+
 body {
   margin: 0;
   padding: 0;
 }
-
+.paytone-one-regular {
+  font-family: "Paytone One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.quicksand-regular {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
 .navigation {
-  background-color: rgb(243, 165, 224);
-  height: 60px;
+  height: 70px;
   width: 1200px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 0 20px;
+  background-color: white;
+  border-bottom: 2px solid pink;
 }
 
 .container {
- 
   margin: 0 auto;
 
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  
-align-items: center;
 
+  align-items: center;
 }
 
-.buttons {
+.buttonns {
   display: flex;
- 
-  gap: 25px;
-  height: 45px ;
-  width: 45px;
+
+  height: 60px;
+  width: 1200px;
+
+  gap: 10px;
+
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  
+  justify-content: space-between;
 }
 .navigation {
   position: fixed;
@@ -42,16 +61,14 @@ align-items: center;
   left: 0;
   display: flex;
   justify-content: flex-start;
-
 }
 .navigation {
-  background-color: rgb(243, 165, 224);
   width: 100%;
   display: flex;
   justify-content: center;
   padding: 0 20px;
   box-sizing: border-box;
-  
+
   top: 0;
   left: 0;
   z-index: 1000;
@@ -65,23 +82,109 @@ align-items: center;
   max-width: 1200px;
 }
 
-.buttons {
+.buttons h1 {
+  margin-right: 50px;
+}
+
+.blockbuttons {
   display: flex;
-  gap: 15px;
+  gap: 5px;
+  flex-direction: row;
+}
+
+.navbarblock {
+  display: flex;
+  gap: 5px;
+  flex-direction: row;
+  color: aqua;
+}
+.buttonns {
+  border-radius: 50px;
+}
+.buttonns button,
+.blockbuttons button,
+.navbarblock button {
+  padding: 10px 15px;
+
+  border-radius: 50px;
+  font-family: "quicksand-regular", sans-serif;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 95px;
+  height: 39px;
+}
+
+.navbarblock button{
+  width: 70px;
+  height: 40px;
+  gap: 1px;
+
+}
+
+.aboutbuttons {
+  background-color: rgb(255, 254, 254);
+  color: rgb(224, 80, 128);
+  border: 2px solid pink;
+}
+.aboutbuttons:hover {
+  background-color: pink;
+  color: white;
+  border-color: rgb(224, 80, 128);
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-.nav-btn, .buttons button {
-  padding: 10px 15px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  background-color: white;
-  color: black;
-  text-decoration: none;
-  font-weight: bold;
+.logoutbuttons {
+  background-color: rgb(224, 80, 128);
+  color: white;
+  font-family: "Paytone One", sans-serif;
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
+.logoutbuttons:hover {
+  background-color: rgb(204, 61, 109);
+  color: white;
+  border-style: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 3px 12px rgba(232, 67, 122, 0.3);
+}
+
+.nameLogo {
+  font-family: "Paytone One", sans-serif;
+  color: rgb(224, 80, 128);
+  font-size: 28px;
+}
+.dollsbutton {
+  background-color: white;
+  color: gray;
+}
+
+.dollsbutton:hover {
+  background-color: rgb(240, 211, 216);
+  color: rgb(224, 80, 128);
+  border-style: none;
+}
+
+.homebutton {
+  background-color: white;
+  color: gray;
+}
+.homebutton:hover {
+  background-color: rgb(240, 211, 216);
+  color: rgb(224, 80, 128);
+  border-style: none;
+}
 /* Menu déroulant Dolls */
 .dolls-menu {
   position: absolute;
@@ -96,20 +199,252 @@ align-items: center;
 }
 
 .textDetails a {
-  color: black;           
-  text-decoration: none;  
+  color: rgb(234, 73, 183);
+  text-decoration: none;
 }
 
-.textDetails a:hover {
-  color: #333;            
-}
 .navigation a {
-  color: black; 
-   font-weight: bold;          
-  text-decoration: none;  
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .navigation a:hover {
-  color: #333;           
+  color: #f389ef;
 }
 
+button:focus,
+button:focus-visible,
+button:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.logoutbuttons::after {
+  content: " ✦";
+  margin-left: 3px;
+  margin-bottom: 2px;
+  color: white; /* couleur de l'étoile */
+  font-size: 1.2em; /* taille un peu plus grande */
+}
+
+.nameLogo::before {
+  content: ""; /* mandatory for ::after to appear */
+  display: inline-block; /* allows width/height */
+  width: 12px;
+  height: 12px;
+  background-color: yellow;
+  border-radius: 50%; /* makes it a circle */
+  margin-left: 5px; /* space after text */
+  animation: pulse 1.5s infinite;
+  margin-bottom: 7px;
+  margin-right: 7px;
+}
+.blockbuttons .aboutbuttons a {
+
+  color: rgb(224, 80, 128);
+  text-decoration: none;
+}
+.blockbuttons .logoutbuttons a {
+  color: white;
+  text-decoration: none;
+}
+
+/* example pulse animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+
+@media (max-width: 600px) {
+
+  .navigation {
+
+
+ 
+  }
+
+  .container {
+
+   
+  }
+
+
+  
+}
+/* Base (mobile-first) */
+.navigation {
+  height: 70px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  padding: 0 15px;
+  box-sizing: border-box;
+  background-color: white;
+  border-bottom: 2px solid pink;
+  z-index: 1000;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column; /* stack on mobile */
+  align-items: center;
+  gap: 10px;
+}
+
+.buttonns {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap; /* allow wrapping */
+  justify-content: center;
+  gap: 10px;
+}
+
+.blockbuttons,
+.navbarblock {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+}
+
+.buttonns button,
+.blockbuttons button,
+.navbarblock button {
+  width: auto; /* flexible instead of fixed */
+  min-width: 70px;
+  height: 36px;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+/* Logo adjustment */
+.nameLogo {
+  font-size: 22px;
+  text-align: center;
+}
+
+/* 📱 Small devices */
+@media (min-width: 600px) {
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .buttonns {
+    justify-content: space-between;
+  }
+
+  .nameLogo {
+    font-size: 24px;
+  }
+}
+
+/* 💻 Tablets */
+@media (min-width: 768px) {
+  .buttonns button {
+    height: 38px;
+    font-size: 15px;
+  }
+
+  .nameLogo {
+    font-size: 26px;
+  }
+}
+
+/* 🖥 Desktop */
+@media (min-width: 1024px) {
+  .container {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .buttonns {
+    flex-wrap: nowrap;
+  }
+
+  .buttonns button,
+  .blockbuttons button,
+  .navbarblock button {
+    width: 95px;
+    height: 39px;
+  }
+
+  .nameLogo {
+    font-size: 28px;
+  }
+}
+@media (max-width: 600px) {
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+  margin-top: calc(-55px);
+
+   
+  }
+  .navigation{
+    height: 25vw;
+  }
+
+  .buttonns {
+    flex-direction: row;   /* keep row */
+    flex-wrap: wrap;       /* 🔥 allow wrapping */
+    justify-content: center;
+    gap: 2px;
+    width: 100%;
+  }
+
+  .blockbuttons,
+  .navbarblock {
+    flex-wrap: wrap;       /* 🔥 wrap inner groups too */
+    justify-content: center;
+    align-items: center;
+     padding-top: 15px 
+  }
+
+  .buttonns button,
+  .blockbuttons button,
+  .navbarblock button {
+    width: auto;           /* let them size naturally */
+    min-width: 80px;
+    
+    flex: 1 1 auto;        /* flexible sizing */
+  }
+
+  .nameLogo {
+    text-align: center;
+    margin-bottom: 8px;
+  }
+}
+@media (max-width: 600px) {
+
+  .buttonns {
+    flex-wrap: wrap;
+    justify-content: center;
+   
+  }
+
+  .blockbuttons,
+  .navbarblock {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+}

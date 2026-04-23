@@ -94,8 +94,13 @@ function CreateProducts() {
       <div className="products">
       
 
+
         <div className="textDetailss">
           {error && <p style={{ color: "pink" }}>{error}</p>}
+
+          <div className="titledescription">
+            <h2>Create Product</h2>
+          </div>
 
           <div className="names">
             <input
@@ -154,6 +159,7 @@ function CreateProducts() {
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}
+                 className={category ? "filled" : ""}
               required
             >
               <option value="" disabled>
@@ -164,7 +170,7 @@ function CreateProducts() {
             </select>
           </div>
 
-          <div className="askrequests">
+          <div className="createRequests">
             <button type="submit" onClick={handleSubmit}>
               Create Product
             </button>

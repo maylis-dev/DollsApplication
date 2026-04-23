@@ -15,6 +15,7 @@ import Private from "./components/Private";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
             <>
               <Navbar />
               <HomePage />
+              <Footer />
             </>
           }/>
         <Route path="/about" element={<Private><AboutPage  user1={'user1'}/></Private>} />

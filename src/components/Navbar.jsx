@@ -30,38 +30,59 @@ function Navbar() {
   return (
     <div className="navigation">
       <div className="container">
-        <div className="buttons">
-          <div className="find">
-            <button onClick={() => setShowCategories(!showCategories)}>
-              Dolls
-            </button>
-
-            {showCategories && (
-              <div className="dolls-menu">
-                {categories.map((cat) => (
-                  <div key={cat} onClick={() => handleCategoryClick(cat)}>
-                    {cat} 
-                  </div>
-                ))}
-              </div>
-            )}
+        <div className="buttonns">
+          <div>
+            <h1 className="nameLogo">DollApp</h1>
           </div>
+          <div className="navbarblock">
+            <div className="find">
+              <button
+                className="dollsbutton"
+                onClick={() => setShowCategories(!showCategories)}
+              >
+                Dolls
+              </button>
 
-        <button onClick={() => navigate("/")}>Home</button>
+              {showCategories && (
+                <div className="dolls-menu">
+                  {categories.map((cat) => (
+                    <div key={cat} onClick={() => handleCategoryClick(cat)}>
+                      {cat}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <button className="homebutton" onClick={() => navigate("/")}>
+              Home
+            </button>
+          </div>
           {isLoggedIn ? (
             <>
-              <button onClick={() => navigate("/about")}>About</button>
-              <button onClick={handleLogout}>logout</button>
+              <div className="blockbuttons">
+                <button
+                  className="aboutbuttons"
+                  onClick={() => navigate("/about")}
+                >
+                  About
+                </button>
+                <button className="logoutbuttons" onClick={handleLogout}>
+                  logout
+                </button>
+              </div>
             </>
           ) : (
             <>
-              <button>
+            <div className="blockbuttons">
+              <button  className="aboutbuttons">
                 {" "}
                 <Link to="/login">login</Link>
               </button>
-              <button>
+              <button className="logoutbuttons">
                 <Link to="/signup">signup</Link>
               </button>
+              </div>
             </>
           )}
         </div>

@@ -7,11 +7,13 @@ body {
 
 /* --- Container --- */
 .containerDolls {
-  max-width: 1200px;
-  margin: 20px auto;
+  width: 94vw;
+  height: 700px;
+  margin: 30px 0;
+
   padding: 20px;
-  background-color: antiquewhite;
-  border-radius: 15px;
+  padding-top: 60px;
+  background-color: rgb(251, 234, 240);
 }
 
 /* --- Block Dolls --- */
@@ -23,101 +25,286 @@ body {
 
 /* --- Title --- */
 .titre {
-  background-color: pink;
   height: 50px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   padding: 0 20px;
   border-radius: 8px;
+  gap: 30px;
 }
 
 .titre h1 {
   margin: 0;
-  font-size: 25px;
+  font-size: 35px;
   font-weight: 500;
+  color: #2d1020;
+  font-family: "Paytone One", sans-serif;
+}
+.titre h1 span {
+  color: #e8437a;
 }
 
+.titre p {
+  margin: 0;
+  font-size: 15px;
+  color: #2d1020;
+  margin-top: -20px;
+  font-family: "Quicksand", sans-serif;
+}
 /* --- Filter buttons --- */
 .filter-buttons {
   display: flex;
+  flex-direction: row;
   gap: 10px;
+  width: 200px;
+  height: 300px;
 }
 
 .filter-btn {
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
+  border: solid 2px pink;
+  border-radius: 25px;
   background-color: pink;
   cursor: pointer;
+  width: 300px;
+
+  height: 40px;
 }
 
 .filter-btn.active {
   background-color: rgb(249, 244, 245);
 }
 
+.filter-btn:hover {
+  background-color: pink;
+  border: solid 2px pink;
+}
 /* --- Dolls List --- */
 .listeDolls {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
+  margin: 60px 0px;
   gap: 20px;
   padding: 20px;
-  background-color: #ffe6f0;
+
   border-radius: 8px;
 }
 
 /* --- Individual Doll Card --- */
-.purchaseDolls, .doll-card {
+.purchaseDolls,
+.doll-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  width: 150px;
-  height: 250px;
-  background-color: palevioletred;
-  border-radius: 8px;
+  width: 180px;
+  height: 370px;
+  background-color: rgb(255, 243, 247);
+  border-radius: 30px;
+  border: 2px solid pink;
+
   gap: 10px;
   padding: 10px;
   color: white;
+  overflow: hidden; /* VERY IMPORTANT */
 }
 
+.purchaseDolls:hover {
+  transform: translateY(-5px);
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+  color: rgb(3, 3, 3);
+  border: solid 2px palevioletred;
+  box-shadow: 0 4px 8px rgba(232, 67, 122, 0.3);
+}
 .doll-name {
   text-align: center;
   font-size: 16px;
   margin: 0;
+  color: grey;
+  font-family: quicksand, sans-serif;
 }
 
 .dollImage {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 300px;
+
   object-fit: cover;
-  border-radius: 5px;
+  display: block;
+  overflow: hidden;
+  margin-top: calc(-25px);
+
+  object-fit: cover;
+}
+.secondBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 /* --- Request button --- */
 .request-btn {
-  background-color: rgb(246, 246, 251);
+  background-color: #e8437a;
   color: rgb(3, 3, 3);
   border: none;
   padding: 5px 10px;
-  border-radius: 5px;
+  border-radius: 25px;
+  font-family: "quicksand", sans-serif;
   cursor: pointer;
+  color: white;
+  width: 90px;
+  height: 30px;
+  font-size: 13px;
+}
+.request-btn:hover {
+  background-color: rgba(110, 21, 51, 0.527);
+  color: white;
+  border: none;
 }
 
 /* --- Responsive --- */
-@media screen and (max-width: 768px) {
+
+
+@media screen and (max-width: 1200px) {
+  .containerDolls {
+    height: auto;
+  }
   .listeDolls {
-    gap: 15px;
+    gap: 25px;
+
+    padding-top: 40px;
+    justify-content: flex-start;
   }
 
-  .purchaseDolls, .doll-card {
-    width: 120px;
-    height: 200px;
+  .purchaseDolls,
+  .doll-card {
+    height: 390px;
   }
 
   .dollImage {
-    width: 80px;
-    height: 80px;
+    
+    object-fit: cover;
+    overflow: hidden;
+    margin-top: calc(-25px);
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1000px){
+
+   .purchaseDolls,
+  .doll-card {
+    
+    background-color: #e8437a;
+  }
+
+  .dollImage {
+    width: 210px;
+    height: 300px;
+    object-fit: cover;
+    overflow: hidden;
+   
+
+}}
+
+
+
+@media screen and (max-width: 900px) {
+  .containerDolls {
+    height: auto;
+  }
+  .listeDolls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 25px;
+    
+   
+
+    padding-top: 40px;
+    justify-content: flex-start;
+  }
+
+  .purchaseDolls,
+  .doll-card {
+ 
+    background-color: #ebebeb;
+    
+  }
+
+  .dollImage {
+      width: 210px;
+    height: 300px;
+  
+    object-fit: cover;
+    overflow: hidden;
+    margin-top: calc(-25px);
+  }
+}
+@media screen and (max-width: 808px) {
+  .containerDolls {
+    height: auto;
+    
+   
+  }
+  .listeDolls {
+    gap: 25px;
+    display: flex;
+    flex-wrap: wrap;
+  
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 40px;
+    justify-content: flex-start;
+  }
+
+  
+
+  .dollImage {
+    width: 210px;
+    height: 300px;
+    object-fit: cover;
+    overflow: hidden;
+    margin-top: calc(-25px);
+  }
+
+  
+}
+
+
+@media screen and (max-width: 568px) {
+  .containerDolls {
+    height: auto;
+  }
+  .listeDolls {
+    gap: 25px;
+    display: flex;
+    flex-direction: column;
+  
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 40px;
+    justify-content: flex-start;
+  }
+
+  
+
+  .dollImage {
+    width: 210px;
+    height: 300px;
+    object-fit: cover;
+    overflow: hidden;
+    margin-top: calc(-25px);
+  }
+
+  .filter-buttons {
+    margin-left: 89px;
   }
 }
