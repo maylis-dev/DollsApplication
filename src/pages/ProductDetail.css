@@ -276,11 +276,18 @@ body{
 .comment-item p {
     font-size: 6px;
   }
+  .comments-section h3{
+    font-size: 15px;
+  }
+  .headerComments {
+  
+     width: 25vw; 
+    margin-top: -10px;
+    font-family: "Quicksand", sans-serif;
+    font-size: 10px;
+}
 .comments-section button {
-    width: 20px;
-    /* padding: 10px 18px; */
-    border: none;
-    border-radius: 20px;
+
     background-color: #ff8fab;
     color: white;
     font-family: "Quicksand", sans-serif;
@@ -288,25 +295,67 @@ body{
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
+.comments-section button:nth-child(1){
+  background-color: #e91e63;
 }
 
+}
 
-@media(max-width: 480px) {
-  .text-block-comments-section {
-    padding: 15px;
-    gap: 10px;
-    background-color: #ea0b0b;
+@media (max-width: 450px) {
+  .productsis {
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 80vw;
+  max-width: 1500px;
+  margin: 80px auto;
+  padding: 40px;
+
+  border-radius: 20px;
+  }
+
+  .blockImage img {
+  width: 40vw;
+  height: 60vw;
+  }
+
+  .textDetails {
+    flex: 2;
+    width: 60vw;
+    height: 60vw;
+  }
+
+  .text-block-productinfo {
+    height: 40vw;
   }
 
   .comment-item {
-    padding: 10px;
-  }
-
-  .comment-item p {
-    font-size: 0.9rem;
-  }
-
-  .comment-item .date {
-    font-size: 0.75rem;
-  }
+ width: 38vw;
 }
+
+.comment-item p {
+    font-size: 6px;
+  }
+  .comments-section h3{
+    font-size: 15px;
+  }
+  .headerComments {
+  
+     width: 45vw; 
+    margin-top: -10px;
+    font-family: "Quicksand", sans-serif;
+    font-size: 10px;
+}
+.comments-section button {
+
+  
+}
+.comments-section button:nth-child(1){
+  background-color: #e91e63;
+}
+
+}
+
+
+

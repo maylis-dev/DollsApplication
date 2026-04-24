@@ -237,13 +237,14 @@ body {
   text-align: center;
   justify-content: center;
 }
-.infoss {
+.infosse {
   display: flex;
   flex-direction: column;
 
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  width: 55px;
+
+  justify-content: space-evenly;
+  align-items: flex-start;
 }
 .productCard h4 {
   margin: 0;
@@ -438,17 +439,13 @@ body {
   margin-top: 5px;
 }
 
-@media  (max-width: 540px) {
+@media (max-width: 540px) {
   .blocksinffo {
     width: 58vw;
     height: 170px;
-    gap:12px;
-   
-    
+    gap: 12px;
   }
 
-  
-  
   .info p {
     margin: 0;
     font-size: 1px;
@@ -474,18 +471,17 @@ body {
     border-radius: 50%;
   }
 
- .info input{
-  width: 10vw;
-  font-size: 9px;
- 
-  
- }
+  .info input {
+    width: 10vw;
+    font-size: 9px;
+  }
 
   .info button {
-   width: 9vw;
-   height: auto;
-   font-size: 5px;
-   
+    width: 9vw;
+    height: auto;
+    font-size: 5px;
+    display: flex;
+    text-align: center;
   }
 
   .mydolls {
@@ -500,7 +496,6 @@ body {
   }
 
   .myCreation {
-   
     height: auto;
   }
   .myCreationHeader {
@@ -524,7 +519,6 @@ body {
     padding: 10px 20px;
     height: 80px;
     width: 60vw;
-    
   }
   .productCard h4 {
     font-size: 15px;
@@ -539,16 +533,23 @@ body {
     width: 40px;
     height: 40px;
   }
-}
-@media (max-width:1200px) {
- 
-    .photo {
-  
-    border-radius: 50%;
-    background-color: #e41919;
+  .editButton {
+    width: 30vw;
+    height: 7vw;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
   }
-
-   .mydolls {
+}
+@media (max-width: 1200px) {
+ 
+.photo img{
+          width: 60px;
+        height: 60px;
+        border-radius: 50%;
+}
+  .mydolls {
     width: 75vw;
     height: auto;
     gap: 15px;
@@ -559,23 +560,21 @@ body {
     height: auto;
   }
 
-   .blocksinffo {
+  .blocksinffo {
     width: 63vw;
-    
-    gap:12px
-  }
 
+    gap: 12px;
+  }
 }
 
-@media (max-width:768px ){
-
-  .photo {
-
+@media (max-width: 768px) {
+  .photo img {
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    background-color: #d6b3c1;
   }
 
-   .mydolls {
+  .mydolls {
     width: 80vw;
     height: auto;
     gap: 15px;
@@ -586,10 +585,10 @@ body {
     height: auto;
   }
 
-   .blocksinffo {
+  .blocksinffo {
     width: 63vw;
-    
-    gap:12px
+
+    gap: 12px;
   }
 
   .myCreationHeader {
@@ -597,16 +596,12 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
-    
   }
-   .productCard {
+  .productCard {
     padding: 20px 10px;
     height: 80px;
   }
 
-   .myCreation p {
-   
-  }
   .myCreationHeader button {
     padding: 8px 24px;
     margin-bottom: 20px;
@@ -619,19 +614,16 @@ body {
     width: 50px;
     height: 50px;
   }
-  
-} 
+}
 
-@media (max-width:650px ){
-
-  .photo {
-  width: 13vw;
-  height: 12vw;
+@media (max-width: 650px) {
+ .photo img {
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    background-color: #ca477b;
   }
 
-   .mydolls {
+  .mydolls {
     width: 80vw;
     height: auto;
     gap: 15px;
@@ -642,10 +634,8 @@ body {
     height: auto;
   }
 
-   .blocksinffo {
+  .blocksinffo {
     width: 63vw;
-    
-    gap:12px
   }
 
   .myCreationHeader {
@@ -653,16 +643,12 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
-    
   }
-   .productCard {
+  .productCard {
     padding: 20px 10px;
     height: 80px;
   }
 
-   .myCreation p {
-   
-  }
   .myCreationHeader button {
     padding: 8px 24px;
     margin-bottom: 20px;
@@ -675,6 +661,50 @@ body {
     width: 50px;
     height: 50px;
   }
-  
-} 
+  .blocksinffo {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 30vw;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 60vw;
+  }
+  .editButton {
+    width: 30vw;
+    height: 7vw;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+  .editButton p {
+    margin-top: 10px;
+  }
+  .button:hover {
+    border-color: palevioletred;
+  }
+  .infoBlock .info {
+    padding-left: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .usernameRow {
+    position: relative;
+    min-height: 10px;
+  }
+  .editButtonsColumn p {
+    color: #ca477b;
+  }
+  .info button {
+    margin-left: 0px;
+    padding: 1px 10px;
+  }
 
+  button:hover {
+    border-color: palevioletred;
+  }
+}

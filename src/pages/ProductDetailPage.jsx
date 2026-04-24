@@ -75,7 +75,7 @@ function ProductDetailPage() {
     <>
       <Navbar />
 
-<div>
+<div className="background">
       <div className="productsis">
         {/* IMAGE BLOCK */}
         <div className="blockImage">
