@@ -75,6 +75,7 @@ function ProductDetailPage() {
     <>
       <Navbar />
 
+<div>
       <div className="productsis">
         {/* IMAGE BLOCK */}
         <div className="blockImage">
@@ -128,6 +129,7 @@ function ProductDetailPage() {
             </div>
           )}
         </div>
+      </div>
       </div>
     </>
   );

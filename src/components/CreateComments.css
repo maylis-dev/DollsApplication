@@ -8,6 +8,7 @@
   border: 1px solid #ffb6d9;
   border-radius: 25px;
   box-shadow: 0 8px 20px rgba(255, 143, 171, 0.12);
+
 }
 .headerComments {
   display: flex;
@@ -163,14 +164,10 @@
   background-color: #ff6f91;
 }
 
-@media screen and (max-width: 600px) {
-  .comments-section {
-    
-  }
 
-  .modal-content {
-   
-  }
+
+@media (max-width: 650px) {
+  
 
   .modal-actions {
     flex-direction: column;
@@ -180,4 +177,9 @@
   .modal-actions button {
     width: 100%;
   }
+
+  
+.comments-section button {
+ background-color: #e2e2e2;
+}
 }

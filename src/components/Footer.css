@@ -12,7 +12,7 @@ body {
 
   background-color: rgb(45, 16, 32);
   color: white;
- 
+
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -26,17 +26,15 @@ body {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  
+
   width: 90vw;
   margin: 0 auto;
   padding: 10px 10px;
   padding-top: 20px;
- 
 
   box-sizing: border-box;
   justify-content: space-evenly;
   gap: 5px;
-  
 }
 
 .block1 {
@@ -47,9 +45,6 @@ body {
   align-items: flex-start;
   justify-content: center;
   text-align: left;
-
- 
-  
 }
 
 .block1 h6 {
@@ -67,7 +62,7 @@ body {
   font-weight: bold;
   display: flex;
   font-family: "Paytone One", cursive;
-  color: #E8437A;
+  color: #e8437a;
 }
 .block1 h2 {
   margin: 0;
@@ -84,8 +79,6 @@ body {
   display: flex;
   justify-content: center;
   width: 250px;
-  
- 
 }
 
 .footerBas {
@@ -222,7 +215,7 @@ hr {
 ========================= */
 
 @media (max-width: 1024px) {
-  .footer{
+  .footer {
     width: 99vw;
   }
 
@@ -240,15 +233,41 @@ hr {
 
   .textses {
     width: 100%;
-   
   }
 
   .footerBas {
     flex-direction: row;
     flex-wrap: wrap;
-    
+
     gap: 10px;
-    
+  }
+}
+
+@media (max-width: 1000px) and (min-width: 800px) {
+  .footer {
+    width: 100vw;
+  }
+
+  .blocksfooter {
+    flex-wrap: wrap;
+  }
+
+  .block1 {
+    text-align: left;
+    justify-content: left;
+    align-items: flex-start;
+  }
+
+  .textses {
+    width: 50vw;
+    text-align: left;
+  }
+
+  .footerBas {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    gap: 10px;
   }
 }
 
@@ -257,18 +276,15 @@ hr {
 ========================= */
 
 @media (max-width: 768px) {
-
   .footer {
     padding: 25px 25px;
     text-align: left;
   }
 
   .blocksfooter {
-    
     align-items: flex-start;
     text-align: left;
     gap: 25px;
-
   }
 
   .block1 {
@@ -277,7 +293,6 @@ hr {
   }
 
   .block1 h3 {
-  
   }
 
   .block1 h2 {
@@ -285,12 +300,10 @@ hr {
   }
 
   .textses {
-   
-  
+    width: 80vw;
   }
 
   .footerBas {
-   
     gap: 8px;
   }
 }
@@ -300,7 +313,6 @@ hr {
 ========================= */
 
 @media (max-width: 600px) {
-
   .footer {
     padding: 20px 30px;
   }
@@ -319,11 +331,9 @@ hr {
 
   .textses {
     font-size: 11px;
-  
   }
 
   .footerBas h5 {
     font-size: 11px;
-   
   }
 }

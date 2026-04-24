@@ -7,11 +7,11 @@ body {
 
 /* --- Container --- */
 .containerDolls {
-  width: 94vw;
+  width: 99vw;
   height: 700px;
-  margin: 30px 0;
+  margin-top: 40px;
 
-  padding: 20px;
+ 
   padding-top: 60px;
   background-color: rgb(251, 234, 240);
 }
@@ -196,11 +196,6 @@ body {
 
 @media (min-width: 900px) and (max-width: 1000px){
 
-   .purchaseDolls,
-  .doll-card {
-    
-    background-color: #e8437a;
-  }
 
   .dollImage {
     width: 210px;
@@ -230,12 +225,7 @@ body {
     justify-content: flex-start;
   }
 
-  .purchaseDolls,
-  .doll-card {
  
-    background-color: #ebebeb;
-    
-  }
 
   .dollImage {
       width: 210px;

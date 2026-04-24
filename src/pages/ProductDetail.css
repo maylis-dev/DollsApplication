@@ -1,4 +1,11 @@
 /* --- MAIN CONTAINER --- */
+body{
+  margin: 0;
+  padding:  0px 0;
+  background-color: white
+ 
+  ;
+}
 .productsis {
   display: flex;
   flex-direction: row;
@@ -7,6 +14,9 @@
   max-width: 1500px;
   margin: 80px auto;
   padding: 40px;
+
+
+ 
 
   border-radius: 20px;
 }
@@ -41,17 +51,11 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+  
 }
 
 /* --- TEXT BLOCKS --- */
-.text-block {
-  background-color: rgb(255, 241, 246);
-  padding: 20px;
-  border: solid 1px pink;
-  border-radius: 25px;
 
-  transition: transform 0.2s ease;
-}
 
 .textDetails .text-block-name {
   font-weight: lighter;
@@ -61,6 +65,7 @@
   border-radius: 25px;
   background-color: white;
   font-size: 10px;
+   background-color: #fff0f6;
 }
 
 .text-block-productinfo {
@@ -126,6 +131,7 @@
 
 .text-block-price {
   border: solid 1px pink;
+  background-color: #fff0f6;
   border-radius: 25px;
   display: flex;
   justify-content: center;
@@ -149,7 +155,10 @@
   border: solid 1px pink;
   border-radius: 25px;
 }
-
+.text-block6comments-section{
+  padding-bottom: 34px;
+  
+}
 .text-block .comments-section h2 {
   margin: 0;
   font-size: 1.5rem;
@@ -160,6 +169,14 @@
 .text-block {
   color: #ea0b0b;
 }
+
+.blockDetails{
+
+  height: 80vw;
+  display: flex;
+  gap: 30px;
+}
+
 /* --- RESPONSIVE --- */
 @media screen and (max-width: 1024px) {
   .productsis {
