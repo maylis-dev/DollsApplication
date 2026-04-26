@@ -273,6 +273,7 @@ body {
 @media screen and (max-width: 568px) {
   .containerDolls {
     height: auto;
+    margin-top: calc(65px);
      
   }
   .listeDolls {

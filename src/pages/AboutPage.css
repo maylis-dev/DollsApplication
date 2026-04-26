@@ -192,8 +192,8 @@ body {
   font-size: 16px;
 }
 .myCreationList {
-  width: 60vw;
-  height: 320px;
+  width: 66vw;
+  height: 230px;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -440,6 +440,10 @@ body {
 }
 
 @media (max-width: 540px) {
+  .containerAbout {
+    padding-top: calc(55px);
+  }
+
   .blocksinffo {
     width: 58vw;
     height: 170px;
@@ -543,12 +547,16 @@ body {
   }
 }
 @media (max-width: 1200px) {
- 
-.photo img{
-          width: 60px;
-        height: 60px;
-        border-radius: 50%;
-}
+
+   .containerAbout {
+    padding-top: calc(55px);
+  }
+
+  .photo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
   .mydolls {
     width: 75vw;
     height: auto;
@@ -568,6 +576,7 @@ body {
 }
 
 @media (max-width: 768px) {
+  
   .photo img {
     width: 50px;
     height: 50px;
@@ -617,7 +626,10 @@ body {
 }
 
 @media (max-width: 650px) {
- .photo img {
+  .containerAbout {
+    margin-top: calc(55px);
+  }
+  .photo img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
