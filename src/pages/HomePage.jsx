@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./HomePage.css";
 import service from "../services/config.services";
@@ -9,6 +10,7 @@ import image3 from "../img/image3.jpg";
 import image4 from "../img/image4.jpg";
 
 function HomePage() {
+  const navigate = useNavigate();
   const [dataOnlyForLoggedUsers, setData] = useState(null);
   const [products, setProducts] = useState([]);
   useEffect(() => {
@@ -60,10 +62,10 @@ function HomePage() {
               </p>
             </div>
             <div className="homepagebuttonss">
-              <button>
+              <button onClick={() => navigate("/signup")}>
                 <h1>Become Seller</h1>
               </button>
-              <button>
+              <button onClick={() => navigate("/products")}>
                 <h1>See Dolls</h1>
               </button>
             </div>
@@ -86,24 +88,48 @@ function HomePage() {
           </div>
         </section>
 
-  <section class="defilementbar">
-  <div class="popup">
-    <span class="popup-item"><span class="popup-star">✦</span> Découvrez notre nouvelle plateforme de vente de poupées !</span>
-    <span class="popup-item"><span class="popup-star">✦</span> Barbie Dolls</span>
-    <span class="popup-item"><span class="popup-star">✦</span> Bratz Dolls</span>
-    <span class="popup-item"><span class="popup-star">✦</span> Join community</span>
-    <span class="popup-item"><span class="popup-star">✦</span> Become a seller</span>
-    <span class="popup-item"><span class="popup-star">✦</span> Buy dolls</span>
-       <span class="popup-item"><span class="popup-star">✦</span> Découvrez notre nouvelle plateforme de vente de poupées !</span>
-    <span class="popup-item"><span class="popup-star">✦</span> Barbie Dolls</span>
-    <span class="popup-item"><span class="popup-star">✦</span> Barbie Dolls</span>
-    <span class="popup-item"><span class="popup-star">✦</span> Bratz Dolls</span>
-        <span class="popup-item"><span class="popup-star">✦</span> Bratz Dolls</span>
-    <span class="popup-item"><span class="popup-star">✦</span> Join community</span>
-   
-   
-  </div>
-</section>
+        <section class="defilementbar">
+          <div class="popup">
+            <span class="popup-item">
+              <span class="popup-star">✦</span> Découvrez notre nouvelle
+              plateforme de vente de poupées !
+            </span>
+            <span class="popup-item">
+              <span class="popup-star">✦</span> Barbie Dolls
+            </span>
+            <span class="popup-item">
+              <span class="popup-star">✦</span> Bratz Dolls
+            </span>
+            <span class="popup-item">
+              <span class="popup-star">✦</span> Join community
+            </span>
+            <span class="popup-item">
+              <span class="popup-star">✦</span> Become a seller
+            </span>
+            <span class="popup-item">
+              <span class="popup-star">✦</span> Buy dolls
+            </span>
+            <span class="popup-item">
+              <span class="popup-star">✦</span> Découvrez notre nouvelle
+              plateforme de vente de poupées !
+            </span>
+            <span class="popup-item">
+              <span class="popup-star">✦</span> Barbie Dolls
+            </span>
+            <span class="popup-item">
+              <span class="popup-star">✦</span> Barbie Dolls
+            </span>
+            <span class="popup-item">
+              <span class="popup-star">✦</span> Bratz Dolls
+            </span>
+            <span class="popup-item">
+              <span class="popup-star">✦</span> Bratz Dolls
+            </span>
+            <span class="popup-item">
+              <span class="popup-star">✦</span> Join community
+            </span>
+          </div>
+        </section>
 
         <section className="explication">
           <div className="explicationContent">
@@ -132,7 +158,7 @@ function HomePage() {
                     </div>
                   ))}
               </div>
-              <div>
+              <div onClick={() => navigate ("/products")}>
                 <p>Explore Dolls ➡︎</p>
               </div>
             </div>
@@ -180,8 +206,8 @@ function HomePage() {
               <p>Des milliers de poupées t'attendent 🎀</p>
             </div>
             <div className="commentaireButtons">
-              <button>Rejoindre</button>
-              <button>explore</button>
+              <button onClick={() => navigate ("/signup")}>Rejoindre</button>
+              <button onClick={() => navigate ("/products")}>explore</button>
             </div>
           </div>
         </section>
