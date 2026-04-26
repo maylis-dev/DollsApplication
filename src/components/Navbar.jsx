@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
+
 import "./Navbar.css";
 
 function Navbar() {
@@ -38,7 +39,7 @@ function Navbar() {
             <div className="find">
               <button
                 className="dollsbutton"
-                onClick={() => setShowCategories(!showCategories)}
+                onClick={() => navigate("/products")}
               >
                 Dolls
               </button>

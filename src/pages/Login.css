@@ -253,9 +253,7 @@
 
 /* ===================== MOBILE ===================== */
 @media (max-width: 390px) {
-  .login-container {
-   
-  }
+
 
   .login-form {
     background-color: #fc062b;
