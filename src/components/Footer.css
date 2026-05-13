@@ -214,6 +214,35 @@ hr {
    TABLET (≤1024px)
 ========================= */
 
+@media (max-width: 2500px) {
+  .footer {
+   
+    width: 100vw;
+  }
+
+  .blocksfooter {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .block1 {
+    align-items: center;
+    text-align: center;
+  }
+
+  .textses {
+    width: 100%;
+  }
+
+  .footerBas {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    gap: 10px;
+  }
+}
 @media (max-width: 1024px) {
   .footer {
     width: 99vw;

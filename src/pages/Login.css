@@ -187,6 +187,25 @@
   height: auto; /* FIX: remove vw height */
 }
 
+@media (min-width: 1280px) and (max-width: 2500px) {
+  .login-form {
+    width: 30vw;
+    min-width: 320px;
+  max-width: 420px;
+   
+  }
+
+
+  .loginInfo {
+    width: 100%;
+  }
+
+   .login-input {
+    width: 100%;
+    
+  }
+}
+
 @media (min-width: 769px) and (max-width: 1200px) {
   .login-form {
     width: 30vw;
@@ -237,31 +256,31 @@
   }
 
   .loginInfo {
-    width: 100%;
+    width: 65vw;
   }
 
   .login-input {
-    width: 100%;
+   width: 60vw;
   }
-
-  
-
-  
+ 
 }
 
 
 
 /* ===================== MOBILE ===================== */
-@media (max-width: 390px) {
+@media (max-width: 450px) {
 
 
   .login-form {
-    background-color: #fc062b;
-    width: 92vw;
-    padding: 20px 15px;
+  
+    width: 25vw;
+       margin-top: 55px;
+  
     border-radius: 24px;
+    padding: 0;
   }
 
+  
   .textLogin h1 {
     font-size: 22px;
   }
@@ -270,4 +289,16 @@
     height: 50px;
     font-size: 16px;
   }
+  .login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  
+  padding: 0
+
+}
+
+
+ 
 }

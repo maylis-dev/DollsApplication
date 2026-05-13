@@ -63,7 +63,7 @@ body {
   justify-content: flex-start;
 }
 .navigation {
-  width: 100%;
+  
   display: flex;
   justify-content: center;
   padding: 0 20px;
@@ -340,6 +340,7 @@ button:active {
   text-align: center;
 }
 
+
 /* 📱 Small devices */
 @media (min-width: 600px) {
   .container {
@@ -449,4 +450,45 @@ button:active {
     justify-content: center;
   }
 
+}
+@media (max-width: 450px) {
+
+  /* FIX GLOBAL */
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* NAVIGATION */
+  
+  /* BUTTON AREA */
+  .buttonns {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .blockbuttons,
+  .navbarblock {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .buttonns button,
+  .blockbuttons button,
+  .navbarblock button {
+    min-width: 70px;
+    width: auto;
+    height: 34px;
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  /* LOGO */
+  .nameLogo {
+    font-size: 20px;
+    text-align: center;
+  }
 }

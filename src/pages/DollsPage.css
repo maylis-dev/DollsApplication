@@ -4,6 +4,9 @@ body {
   padding: 0;
   font-family: Arial, sans-serif;
   flex-wrap: wrap;
+
+
+   
 }
 
 /* --- Container --- */
@@ -14,7 +17,7 @@ body {
 
  
   padding-top: 60px;
-  background-color: rgb(251, 234, 240);
+  
 }
 
 /* --- Block Dolls --- */
@@ -170,7 +173,48 @@ body {
 
 /* --- Responsive --- */
 
+@media (min-width: 1200px) and (max-width: 2500px) {
 
+  body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  flex-wrap: wrap;
+
+   
+}
+
+  .containerDolls {
+    height: auto;
+  }
+  .listeDolls {
+    gap: 25px;
+
+    padding-top: 40px;
+    justify-content: flex-start;
+  }
+
+  .purchaseDolls,
+  .doll-card {
+    height: 390px;
+  }
+
+  .dollImage {
+    
+    object-fit: cover;
+    overflow: hidden;
+    margin-top: calc(-25px);
+  }
+  .containerDolls {
+  width: 80vw;
+  height: auto;
+  margin-top: 40px;
+
+ 
+  padding-top: 60px;
+  
+}
+}
 @media screen and (max-width: 1200px) {
   .containerDolls {
     height: auto;
@@ -299,6 +343,6 @@ body {
   }
 
   .filter-buttons {
-    margin-left: 89px;
+    margin-left: 49px;
   }
 }

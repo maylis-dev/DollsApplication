@@ -189,6 +189,20 @@
 }
 
 /* Responsive Adjustments */
+@media (min-width: 1208px) and (max-width: 2500px) {
+  
+  .signup-info {
+  width: 30vw;
+  display: flex;
+
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+  padding-left: 10px;
+}
+
+}
 
 @media (max-width: 1208px) {
   .signup-container {
@@ -255,7 +269,9 @@
   
 
   .signup-form {
-    width: 35vw;
+    width: 75vw;
+    margin-top: 25px;
+
    
    
   }
