@@ -234,6 +234,7 @@
   .signup-container {
     margin-top: 20px;
     width: 35vw;
+    margin-top: 22px;
 
   }
 
@@ -241,6 +242,8 @@
     
     height: auto;
    width: 35vw;
+    margin-top: 22px;
+    align-items: center;
   }
 
   .signup-info {
@@ -260,6 +263,7 @@
 @media (max-width: 540px) {
   .signup-form {
     width: 35vw;
+    margin-top: 22px;
   
   }
 }
