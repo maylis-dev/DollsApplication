@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-//import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import service from "../services/config.services";
 import { Link } from "react-router-dom";
@@ -35,15 +34,16 @@ function SignupPage() {
       password,
     };
 
-    console.log(body);
+  
 
     try {
       const response = await service.post(`/auth/signup`, body);
-      console.log("user register", response); // HOULD MATCH THE ROUTE IF ITS A POST IN THE BACK YOU POST POST
+      //console.log("user register", response); // HOULD MATCH THE ROUTE IF ITS A POST IN THE BACK YOU POST POST
 
       navigate("/login");
     } catch (error) {
       console.log(error);
+      console.error;
       if (error.response.status === 400) {
         console.log(error.response.data.errorMessage);
         setErrorMessage(error.response.data.errorMessage);

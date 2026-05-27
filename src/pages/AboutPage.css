@@ -180,12 +180,23 @@ body {
   font-size: 28px;
   color: #5a3d4b;
 }
+.creationtextss {
+  font-family: "quicksand", sans-serif;
+}
+
+.creationtextss:hover span {
+  background: white;
+  border-radius: 4px;
+  border-style: solid white;
+}
+
 .myCreationHeader span {
   font-weight: bold;
   font-family: "Quicksand", cursive;
   font-size: 12px;
   color: #ffffff;
 }
+
 .myCreationHeader button span {
   font-weight: bold;
   font-family: "Quicksand", cursive;
@@ -200,6 +211,7 @@ body {
   align-items: center;
   min-height: 0;
   overflow-y: auto;
+  justify-content: center;
 }
 .listContainer {
   width: 60vw;
@@ -306,7 +318,7 @@ body {
   background-color: #ff6f91;
 }
 
-.myCreationList :hover {
+.myCreationList .productCard:hover {
   transition: 0.2s;
   background-color: #fff0f6;
   border-color: #ff6f91;
@@ -377,10 +389,22 @@ body {
   font-size: 14px;
 }
 
+.emailrow {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+
+  width: 40vw;
+}
 .editInput:focus {
   border-color: #ff8fab;
   box-shadow: 0 0 5px rgba(255, 143, 171, 0.4);
   font-family: "quicksand", sans-serif;
+  transform: none;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .usernameRow {
@@ -438,7 +462,44 @@ body {
   border-radius: 8px;
   margin-top: 5px;
 }
+.creationtextss {
+  font-family: "quicksand", sans-serif;
+}
+.creationtextss p span {
+  pointer-events: none;
+  cursor: default;
+  background-color: #ca477b;
+}
 
+@media (max-width: 2000px) {
+  .infoBlock {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 50vw;
+  }
+  .blocksinffo {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1880px) {
+  .infoBlock {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 50vw;
+  }
+  .blocksinffo {
+    justify-content: center;
+  }
+}
 @media (max-width: 540px) {
   .containerAbout {
     padding-top: calc(55px);
@@ -463,16 +524,9 @@ body {
   .usernameText {
     font-size: 27px;
   }
-  .emailType {
-    width: 110px;
-  }
+
   .emailText {
     font-size: 10px;
-  }
-  .photo {
-    width: 67px;
-    height: 60px;
-    border-radius: 50%;
   }
 
   .info input {
@@ -481,9 +535,9 @@ body {
   }
 
   .info button {
-    width: 9vw;
-    height: auto;
-    font-size: 5px;
+    width: 12vw;
+    height: 5vw;
+    font-size: 12px;
     display: flex;
     text-align: center;
   }
@@ -547,8 +601,7 @@ body {
   }
 }
 @media (max-width: 1200px) {
-
-   .containerAbout {
+  .containerAbout {
     padding-top: calc(55px);
   }
 
@@ -569,18 +622,32 @@ body {
   }
 
   .blocksinffo {
-    width: 63vw;
+    width: 67vw;
 
     gap: 12px;
   }
 }
-
+@media (max-width: 900px) {
+  .infoBlock {
+    width: 60vw;
+  }
+}
 @media (max-width: 768px) {
-  
   .photo img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+  }
+
+  .emailrow {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    gap: 7px;
+
+    width: 30vw;
   }
 
   .mydolls {
@@ -596,8 +663,11 @@ body {
 
   .blocksinffo {
     width: 63vw;
-
+    height: auto;
     gap: 12px;
+  }
+  .emailrow {
+    flex-direction: column;
   }
 
   .myCreationHeader {
@@ -622,6 +692,29 @@ body {
   .productCard img {
     width: 50px;
     height: 50px;
+  }
+  .infoBlock {
+    width: 70vw;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .infoBlock .info {
+    align-items: center;
+    gap: 10px;
+  }
+  .info button {
+    width: 12vw;
+    height: 5vw;
+    font-size: 16px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .editButtonsColumn {
+    position: absolute;
+    right: -125px;
   }
 }
 
@@ -684,6 +777,11 @@ body {
     gap: 30px;
     width: 60vw;
   }
+  .editButtonsColumn {
+    height: auto;
+    width: 20vw;
+    margin-left: 0;
+  }
   .editButton {
     width: 30vw;
     height: 7vw;
@@ -699,7 +797,6 @@ body {
     border-color: palevioletred;
   }
   .infoBlock .info {
-    padding-left: 0px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -711,12 +808,23 @@ body {
   .editButtonsColumn p {
     color: #ca477b;
   }
-  .info button {
-    margin-left: 0px;
-    padding: 1px 10px;
-  }
 
   button:hover {
     border-color: palevioletred;
+  }
+
+  .infoBlock .info {
+    align-items: center;
+    gap: 15px;
+  }
+  .blocksinffo {
+    height: auto;
+  }
+  .info button {
+    width: 12vw;
+    height: fit-content;
+    font-size: 9px;
+    display: flex;
+    text-align: center;
   }
 }

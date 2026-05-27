@@ -8,10 +8,13 @@ import image1 from "../img/image1.jpg";
 import image2 from "../img/image2.jpg";
 import image3 from "../img/image3.jpg";
 import image4 from "../img/image4.jpg";
+import barbie from "../img/barbie.png";
+import bratzLogo from "../img/bratzLogo.png";
 
 function HomePage() {
   const navigate = useNavigate();
   const [dataOnlyForLoggedUsers, setData] = useState(null);
+  // !meme nom a guache a droite
   const [products, setProducts] = useState([]);
   useEffect(() => {
     getData();
@@ -44,7 +47,7 @@ function HomePage() {
           <div className="text">
             <div className="textentry">
               <div className="titleentry">
-                ✦ Nouvelle plateforme <span> 2026</span>
+                <p>✦ Nouvelle plateforme</p> <span> 2026</span>
               </div>
 
               <h2>
@@ -91,42 +94,7 @@ function HomePage() {
         <section class="defilementbar">
           <div class="popup">
             <span class="popup-item">
-              <span class="popup-star">✦</span> Découvrez notre nouvelle
-              plateforme de vente de poupées !
-            </span>
-            <span class="popup-item">
-              <span class="popup-star">✦</span> Barbie Dolls
-            </span>
-            <span class="popup-item">
-              <span class="popup-star">✦</span> Bratz Dolls
-            </span>
-            <span class="popup-item">
-              <span class="popup-star">✦</span> Join community
-            </span>
-            <span class="popup-item">
-              <span class="popup-star">✦</span> Become a seller
-            </span>
-            <span class="popup-item">
-              <span class="popup-star">✦</span> Buy dolls
-            </span>
-            <span class="popup-item">
-              <span class="popup-star">✦</span> Découvrez notre nouvelle
-              plateforme de vente de poupées !
-            </span>
-            <span class="popup-item">
-              <span class="popup-star">✦</span> Barbie Dolls
-            </span>
-            <span class="popup-item">
-              <span class="popup-star">✦</span> Barbie Dolls
-            </span>
-            <span class="popup-item">
-              <span class="popup-star">✦</span> Bratz Dolls
-            </span>
-            <span class="popup-item">
-              <span class="popup-star">✦</span> Bratz Dolls
-            </span>
-            <span class="popup-item">
-              <span class="popup-star">✦</span> Join community
+              <span class="popup-star"></span>
             </span>
           </div>
         </section>
@@ -137,10 +105,8 @@ function HomePage() {
               <div className="Titleexplication">
                 <h2>
                   Trendy <span>Dolls</span>
+                  <p>the most trendy and stylish dolls on the market!</p>
                 </h2>
-              </div>
-              <div className="pexpplication">
-                <p>the most trendy and stylish dolls on the market!</p>
               </div>
             </div>
             <div className="productexplication">
@@ -149,7 +115,11 @@ function HomePage() {
                   .sort(() => 0.5 - Math.random()) // shuffle
                   .slice(0, 4) // take first 4
                   .map((product) => (
-                    <div className="productTrendy" key={product._id}>
+                    <div
+                      className="productTrendy"
+                      key={product._id}
+                      onClick={() => navigate(`/products/${product._id}`)}
+                    >
                       <img src={product.imageUrl} alt={product.name} />
                       <div className="textexplin">
                         <h3>{product.name}</h3>
@@ -157,9 +127,12 @@ function HomePage() {
                       </div>
                     </div>
                   ))}
-              </div>
-              <div onClick={() => navigate ("/products")}>
-                <p>Explore Dolls ➡︎</p>
+                <div
+                  className="productTrendy"
+                  onClick={() => navigate("/products")}
+                >
+                  <p>Explore Dolls ➡︎</p>
+                </div>
               </div>
             </div>
           </div>
@@ -206,8 +179,8 @@ function HomePage() {
               <p>Des milliers de poupées t'attendent 🎀</p>
             </div>
             <div className="commentaireButtons">
-              <button onClick={() => navigate ("/signup")}>Rejoindre</button>
-              <button onClick={() => navigate ("/products")}>explore</button>
+              <button onClick={() => navigate("/signup")}>Rejoindre</button>
+              <button onClick={() => navigate("/products")}>explore</button>
             </div>
           </div>
         </section>

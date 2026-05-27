@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./AboutPage.css";
 import Navbar from "../components/Navbar";
@@ -11,6 +11,9 @@ function AboutPage({ user1 }) {
   // État pour stocker les produits
   const [products, setProducts] = useState([]);
 
+  //etat pour la
+  const [profileImage, setProfileImage] = useState(null);
+
   // Hook pour naviguer entre les pages
   const navigate = useNavigate();
 
@@ -22,6 +25,7 @@ function AboutPage({ user1 }) {
   useEffect(() => {
     fetchUser();
     fetchProducts();
+    fetchProfileImage();
   }, []);
 
   // Initialiser la valeur de l'input quand on commence à éditer
@@ -39,6 +43,18 @@ function AboutPage({ user1 }) {
       setUser(response.data);
     } catch (err) {
       console.error(err);
+    }
+  };
+
+  // Récupérer l'image de profil de l'utilisateur donc ne cree pas une nouvelle image a chaque fois que on refresh la page
+  const fetchProfileImage = async () => {
+    try {
+      const response = await service.post("/user/profile-image");
+      setProfileImage(response.data);
+      console.log("Profile image URL:", response.data);
+    } catch (err) {
+      console.error(err);
+      console.log("No profile image found for the user.");
     }
   };
 
@@ -83,9 +99,7 @@ function AboutPage({ user1 }) {
       <div className="containerAbout">
         <div className="blocksinffo">
           <div className="infoBlock">
-            <div className="photo">
-              {/* Ici tu peux mettre une photo de l'utilisateur */}
-            </div>
+            <div className="photo"></div>
             <div className="info">
               {/* Username */}
               <div className="usernameRow">
@@ -108,7 +122,17 @@ function AboutPage({ user1 }) {
                   </>
                 ) : (
                   <>
-                    <span className="usernameText"> {user.username} </span>
+                    <div className="emailrow">
+                      <span className="usernameText"> {user.username} </span>
+                      <div className="buttonEdit">
+                        <button
+                          className="editButton"
+                          onClick={() => setEditingField("username")}
+                        >
+                          Edit
+                        </button>
+                      </div>
+                    </div>
                   </>
                 )}
               </div>
@@ -131,14 +155,6 @@ function AboutPage({ user1 }) {
               </div>
             </div>
           </div>
-          <div className="buttonEdit">
-            <button
-              className="editButton"
-              onClick={() => setEditingField("username")}
-            >
-              Edit
-            </button>
-          </div>
         </div>
 
         {/* Section pour afficher les créations de l'utilisateur */}
@@ -149,35 +165,46 @@ function AboutPage({ user1 }) {
                 <p>My Creations</p>
 
                 {/* Bouton pour créer un nouveau produit */}
+
                 <button onClick={() => navigate("/post-products")}>
                   <span>Create Product</span>
                 </button>
               </div>
               <div className="">
-              <div className="myCreationList">
-                {/* Affichage des produits créés par l'utilisateur */}
-                {products
-                  .filter((product) => product.seller === user._id)
-                  .map((product) => (
-                    <div key={product._id} className="productCard">
-                      <div className="productInfo">
-                      {product.imageUrl && (
-                        <img src={product.imageUrl} alt={product.name} />
-                      )}
-                      <div className="infosse">
-                        <h4>{product.name}</h4>
-                        <p>{product.category}</p>
+                <div className="myCreationList">
+                  {/* Affichage des produits créés par l'utilisateur */}
+
+                  {products.filter((product) => product.seller === user._id)
+                    .length === 0 ? (
+                    <p>
+                      <span className="creationtextss">
+                        No products created
+                      </span>
+                    </p>
+                  ) : (
+                    products.map((product) => (
+                      <div key={product._id} className="productCard">
+                        <div className="productInfo">
+                          {product.imageUrl && (
+                            <img src={product.imageUrl} alt={product.name} />
+                          )}
+                          <div className="infosse">
+                            <h4>{product.name}</h4>
+                            <p>{product.category}</p>
+                          </div>
+                        </div>
+                        {/* Bouton pour éditer le produit */}
+                        <button
+                          onClick={() =>
+                            navigate(`/edit-product/${product._id}`)
+                          }
+                        >
+                          Edit
+                        </button>
                       </div>
-                      </div>
-                      {/* Bouton pour éditer le produit */}
-                      <button
-                        onClick={() => navigate(`/edit-product/${product._id}`)}
-                      >
-                        Edit
-                      </button>
-                    </div>
-                  ))}
-              </div>
+                    ))
+                  )}
+                </div>
               </div>
             </div>
           </div>

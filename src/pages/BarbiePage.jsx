@@ -13,12 +13,12 @@ function BarbiePage() {
       try {
         // Fetch all products
         const response = await axios.get(
-          `${import.meta.env.VITE_SERVER_URL}/api/products`
+          `${import.meta.env.VITE_SERVER_URL}/api/products`,
         );
 
         // Filter only Barbie products
         const barbieProducts = response.data.filter(
-          (product) => product.category === "Barbie"
+          (product) => product.category === "Barbie",
         );
         setProducts(barbieProducts);
 
@@ -52,14 +52,14 @@ function BarbiePage() {
               {products.map((product) => (
                 <div className="purchaseDolls" key={product._id}>
                   <h3>{product.name}</h3>
-               {/* Image */}
-                {product.imageUrl && (
-                  <img
-                    src={product.imageUrl}
-                    alt={product.name}
-                    className="dollImage"
-                  />
-                )}
+                  {/* Image */}
+                  {product.imageUrl && (
+                    <img
+                      src={product.imageUrl}
+                      alt={product.name}
+                      className="dollImage"
+                    />
+                  )}
                   <Link to={`/products/${product._id}`}>
                     <button>Request</button>
                   </Link>

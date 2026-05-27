@@ -14,7 +14,7 @@
 /* Form Card */
 .signup-form {
   background: #fff;
-  padding: 0px 50px;
+  padding: 0px 70px;
   border-radius: 32px;
   box-shadow: 0 4px 15px rgba(255, 192, 203, 0.368);
   width: 30vw;
@@ -79,7 +79,7 @@
   font-family: "quicksand-regular", sans-serif;
 }
 
- .signup-title {
+.signup-title {
   color: #333;
 }
 .signup-label {
@@ -94,7 +94,7 @@
 
 /* Inputs */
 .signup-input {
-   width: 29.2vw;
+  width: 29.2vw;
   height: 22px;
   display: flex;
   padding: 12px 0;
@@ -104,14 +104,15 @@
   border-radius: 20px;
   font-size: 16px;
   padding-left: 10px;
- justify-content: center;
- align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .signup-input:focus {
   background-color: white;
   outline-color: #e8437a;
   padding-left: 10px;
+  padding-left: 20px;
 }
 
 /* Buttons */
@@ -133,7 +134,7 @@
 }
 
 .signup-button:hover {
- background-color: white;
+  background-color: white;
   color: #e8437a;
   border: 2px solid #e8437a;
   transform: translateY(-2px);
@@ -151,10 +152,8 @@
 
 /* Login Link Button */
 .login-link .login-button {
-  
   color: white;
   font-size: 16px;
-  
 }
 
 .loginn-button {
@@ -164,7 +163,7 @@
 }
 
 .loginn-link {
-  color:#e8437a;
+  color: #e8437a;
   text-decoration: none;
   font-weight: 500;
   margin-left: 4px;
@@ -172,7 +171,7 @@
 
 .loginn-link:hover {
   text-decoration: underline;
-  color:#e8437a;
+  color: #e8437a;
 }
 
 .textLogin .login-title {
@@ -190,38 +189,41 @@
 
 /* Responsive Adjustments */
 @media (min-width: 1208px) and (max-width: 2500px) {
-  
   .signup-info {
-  width: 30vw;
-  display: flex;
+    width: 30vw;
+    display: flex;
 
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  text-align: left;
-  padding-left: 10px;
-}
-
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    padding-left: 10px;
+  }
+  .signup-form {
+    width: 30vw;
+    height: auto;
+    padding-bottom: 15px;
+  }
 }
 
 @media (max-width: 1208px) {
   .signup-container {
     margin-top: 20px;
-    width: 35vw;
-
-  }
-
-  .signup-form {
-    
-    height: auto;
-   width: 35vw;
-  }
-
-  .signup-info {
-    width: 100%;
+    width: 55vw;
   }
 
   .signup-input {
+    width: 100%;
+  }
+  .signup-form {
+    height: auto;
+    width: 55vw;
+
+    padding: 0px 82px;
+    padding-bottom: 15px;
+  }
+
+  .signup-info {
     width: 100%;
   }
 
@@ -233,17 +235,26 @@
 @media (max-width: 768px) {
   .signup-container {
     margin-top: 20px;
-    width: 35vw;
+    width: 85vw;
     margin-top: 22px;
+  }
 
+  .signup-title p {
+    font-size: 14px;
+    color: #777;
+  }
+
+  .signup-title h1:nth-of-type(2) {
+    font-size: 30px;
   }
 
   .signup-form {
-    
     height: auto;
-   width: 35vw;
+    width: 55vw;
     margin-top: 22px;
     align-items: center;
+    padding: 0px 83px;
+    padding-bottom: 25px;
   }
 
   .signup-info {
@@ -261,27 +272,33 @@
 
 /* ===================== SMALL TABLET / LARGE PHONE ===================== */
 @media (max-width: 540px) {
+  .signup-container {
+    width: 55vw;
+  }
   .signup-form {
     width: 35vw;
     margin-top: 22px;
-  
+    padding: 0 33px;
   }
 }
 
 /* ===================== MOBILE ===================== */
 @media (max-width: 480px) {
-  
-
   .signup-form {
-    width: 75vw;
+    width: 89vw;
     margin-top: 25px;
-
-   
-   
+    padding-bottom: 30px;
   }
 
+  .signup-title p {
+    font-size: 14px;
+    color: #777;
+  }
   .signup-title h1 {
     font-size: 26px;
+  }
+  .signup-title h1:nth-of-type(2) {
+    font-size: 24px;
   }
 
   .signup-input {
@@ -292,5 +309,8 @@
   .signup-button {
     height: 50px;
     font-size: 14px;
+  }
+  .signup-title {
+    width: 60vw;
   }
 }

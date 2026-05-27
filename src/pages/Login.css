@@ -36,7 +36,6 @@
   color: #555;
   margin-bottom: 20px;
   padding-left: 10px;
-  
 }
 .textLogin h1 {
   font-size: 35px;
@@ -62,7 +61,6 @@
 }
 ::placeholder {
   color: #aaa;
-  padding-left: 10px;
 }
 .login-label {
   display: block;
@@ -97,14 +95,14 @@
   border-radius: 20px;
   font-size: 16px;
   padding-left: 10px;
- justify-content: center;
- align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-input:focus {
   background-color: white;
   outline-color: #e8437a;
-  padding-left: 10px;
+  padding-left: 20px;
 }
 
 /* Button */
@@ -128,7 +126,7 @@
   background-color: white;
   color: #e8437a;
   border: 2px solid #e8437a;
-  transform: translateY(-2px);
+  transform: translateY(-1px);
   box-shadow: 0 4px 15px pink;
   transition: all 0.3s ease;
 }
@@ -178,31 +176,27 @@
 
 /* Responsive Adjustments */
 
-
-
 .login-form {
   width: 30vw;
   min-width: 320px;
   max-width: 420px;
-  height: auto; /* FIX: remove vw height */
+  height: auto;
+  padding-bottom: 10px;
 }
 
 @media (min-width: 1280px) and (max-width: 2500px) {
   .login-form {
     width: 30vw;
     min-width: 320px;
-  max-width: 420px;
-   
+    max-width: 420px;
   }
-
 
   .loginInfo {
     width: 100%;
   }
 
-   .login-input {
+  .login-input {
     width: 100%;
-    
   }
 }
 
@@ -210,32 +204,7 @@
   .login-form {
     width: 30vw;
     min-width: 320px;
-  max-width: 420px;
-   
-  }
-
-
-  .loginInfo {
-    width: 100%;
-  }
-
-   .login-input {
-    width: 100%;
-    
-  }
-}
-
- /* ===================== TABLET ===================== */
-@media (max-width: 768px) {
-  
-
-  .login-form {
-    width: 35vw;
-    margin-top: 22px;
-   
-
-   
-    
+    max-width: 420px;
   }
 
   .loginInfo {
@@ -244,7 +213,22 @@
 
   .login-input {
     width: 100%;
-  
+  }
+}
+
+/* ===================== TABLET ===================== */
+@media (max-width: 768px) {
+  .login-form {
+    width: 35vw;
+    margin-top: 22px;
+  }
+
+  .loginInfo {
+    width: 100%;
+  }
+
+  .login-input {
+    width: 100%;
   }
 }
 
@@ -252,9 +236,7 @@
 @media (max-width: 540px) {
   .login-form {
     width: 35vw;
-            margin-top: 22px;
-   
-   
+    margin-top: 22px;
   }
 
   .loginInfo {
@@ -262,27 +244,20 @@
   }
 
   .login-input {
-   width: 60vw;
+    width: 60vw;
   }
- 
 }
-
-
 
 /* ===================== MOBILE ===================== */
 @media (max-width: 450px) {
-
-
   .login-form {
-  
     width: 25vw;
-       margin-top: 55px;
-  
+    margin-top: 55px;
+
     border-radius: 24px;
     padding: 0;
   }
 
-  
   .textLogin h1 {
     font-size: 22px;
   }
@@ -292,15 +267,11 @@
     font-size: 16px;
   }
   .login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  justify-content: center;
-  
-  padding: 0
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
 
-}
-
-
- 
+    padding: 0;
+  }
 }

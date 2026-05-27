@@ -63,7 +63,6 @@ body {
   justify-content: flex-start;
 }
 .navigation {
-  
   display: flex;
   justify-content: center;
   padding: 0 20px;
@@ -119,11 +118,10 @@ body {
   height: 39px;
 }
 
-.navbarblock button{
+.navbarblock button {
   width: 70px;
   height: 40px;
   gap: 1px;
-
 }
 
 .aboutbuttons {
@@ -240,7 +238,6 @@ button:active {
   margin-right: 7px;
 }
 .blockbuttons .aboutbuttons a {
-
   color: rgb(224, 80, 128);
   text-decoration: none;
 }
@@ -265,23 +262,7 @@ button:active {
   }
 }
 
-
-
 @media (max-width: 600px) {
-
-  .navigation {
-
-
- 
-  }
-
-  .container {
-
-   
-  }
-
-
-  
 }
 /* Base (mobile-first) */
 .navigation {
@@ -340,13 +321,11 @@ button:active {
   text-align: center;
 }
 
-
 /* 📱 Small devices */
 @media (min-width: 600px) {
   .container {
     flex-direction: row;
     justify-content: space-between;
-  
   }
 
   .buttonns {
@@ -371,7 +350,39 @@ button:active {
 }
 
 /* 🖥 Desktop */
-@media (min-width: 1024px) {
+
+@media (max-width: 2000px) {
+  .navigation {
+    width: 100vw;
+  }
+
+  .container {
+    width: 90%;
+    max-width: max-content;
+  }
+
+  .buttonns {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    width: 100vw;
+  }
+
+  .buttonns button,
+  .blockbuttons button,
+  .navbarblock button {
+    width: 95px;
+    height: 39px;
+  }
+
+  .nameLogo {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1300px) {
   .container {
     flex-direction: row;
     justify-content: space-around;
@@ -392,74 +403,122 @@ button:active {
     font-size: 28px;
   }
 }
-@media (max-width: 600px) {
 
-  .container {
-    flex-direction: column;
-    align-items: center;
-  margin-top: calc(-55px);
+@media (max-width: 650px) {
+  /* FIX GLOBAL */
 
-   
-  }
-  .navigation{
-    padding:  55px;
-   
-  }
-
-  .buttonns {
-    flex-direction: row;   /* keep row */
-    flex-wrap: wrap;       /* 🔥 allow wrapping */
+  /* NAVIGATION */
+  .navigation {
     justify-content: center;
-    gap: 2px;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+  }
+
+  /* BUTTON AREA */
+  .buttonns {
     width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
   }
 
   .blockbuttons,
   .navbarblock {
-    flex-wrap: wrap;       /* 🔥 wrap inner groups too */
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-     padding-top: 15px 
+    gap: 5px;
   }
 
   .buttonns button,
   .blockbuttons button,
   .navbarblock button {
-    width: auto;           /* let them size naturally */
-    min-width: 80px;
-    
-    flex: 1 1 auto;        /* flexible sizing */
+    min-width: 70px;
+    width: auto;
+    height: 34px;
+    font-size: 12px;
+    padding: 6px 10px;
   }
 
+  /* LOGO */
   .nameLogo {
-    text-align: center;
-    margin-bottom: 8px;
+    font-size: 20px;
+    margin-top: 8px;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 450px) {
+  /* FIX GLOBAL */
+  html,
+  body {
+    overflow-x: hidden;
+  }
 
+  /* NAVIGATION */
+  .navigation {
+    flex-wrap: wrap;
+    display: block;
+    /* justify-content: center; */
+    align-items: center;
+    text-align: center;
+    /* padding: 36px; */
+    /* background-color: #f389ef; */
+    /* width: 100vw; */
+    height: 25vw;
+  }
+
+  /* BUTTON AREA */
   .buttonns {
+    width: 100%;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-   
+    gap: 6px;
   }
 
   .blockbuttons,
   .navbarblock {
     flex-wrap: wrap;
     justify-content: center;
+    gap: 5px;
   }
 
-}
-@media (max-width: 450px) {
+  .buttonns button,
+  .blockbuttons button,
+  .navbarblock button {
+    min-width: 70px;
+    width: auto;
+    height: 34px;
+    font-size: 12px;
+    padding: 6px 10px;
+  }
 
+  /* LOGO */
+  .nameLogo {
+    font-size: 20px;
+
+    margin-top: 8px;
+  }
+  .review {
+    height: auto;
+    width: stretch;
+  }
+}
+
+@media (max-width: 300px) {
   /* FIX GLOBAL */
-  html, body {
+  html,
+  body {
     overflow-x: hidden;
   }
 
+  .navigation {
+    padding: 0;
+    width: auto;
+  }
+
   /* NAVIGATION */
-  
+
   /* BUTTON AREA */
   .buttonns {
     width: 100%;
@@ -490,5 +549,8 @@ button:active {
   .nameLogo {
     font-size: 20px;
     text-align: center;
+  }
+  .container {
+    background-color: red;
   }
 }

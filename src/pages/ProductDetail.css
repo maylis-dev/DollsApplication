@@ -1,11 +1,9 @@
 /* --- MAIN CONTAINER --- */
-body{
+body {
   margin: 0;
-  padding:  0px 0;
- 
- background-color: #f7eef147;
+  padding: 0px 0;
 
-  
+  background-color: #f7eef147;
 }
 .productsis {
   display: flex;
@@ -15,9 +13,6 @@ body{
   max-width: 1500px;
   margin: 80px auto;
   padding: 40px;
-
-
- 
 
   border-radius: 20px;
 }
@@ -40,23 +35,17 @@ body{
   object-fit: cover;
 }
 
-.blockImage img:hover {
-  transform: scale(1.05);
-}
-
 /* --- TEXT DETAILS --- */
 .textDetails {
   flex: 2;
-  width: 30vw;
+  width: 35vw;
   height: 40vw;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  
 }
 
 /* --- TEXT BLOCKS --- */
-
 
 .textDetails .text-block-name {
   font-weight: lighter;
@@ -66,7 +55,7 @@ body{
   border-radius: 25px;
   background-color: white;
   font-size: 10px;
-   background-color: #fff0f6;
+  background-color: #fff0f6;
 }
 
 .text-block-productinfo {
@@ -156,9 +145,8 @@ body{
   border: solid 1px pink;
   border-radius: 25px;
 }
-.text-block6comments-section{
+.text-block6comments-section {
   padding-bottom: 34px;
-  
 }
 .text-block .comments-section h2 {
   margin: 0;
@@ -171,19 +159,36 @@ body{
   color: #ea0b0b;
 }
 
-.blockDetails{
-
+.blockDetails {
   height: 80vw;
   display: flex;
   gap: 30px;
 }
 
+.locked-comments {
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  justify-content: center;
+  border: solid 1px pink;
+  border-radius: 25px;
+  padding: 20px;
+  font-family: "Quicksand", sans-serif;
+  font-size: 19px;
+  color: palevioletred;
+  height: 10vw;
+}
+.locked-comments span {
+  font-size: 20px;
+  font-weight: bold;
+  color: #e91e63;
+}
+
 /* --- RESPONSIVE --- */
 @media screen and (max-width: 1024px) {
   .productsis {
-
     padding: 30px;
-    
   }
 
   .blockImage img {
@@ -195,19 +200,16 @@ body{
     text-align: center;
   }
 
-   .comment-item {
- width: 18vw;
-  
-}
+  .comment-item {
+    width: 18vw;
+  }
 
-
-.textDetails {
-    
+  .textDetails {
     width: 30vw;
     height: 40vw;
   }
 
-   .text-block-productinfo {
+  .text-block-productinfo {
     height: 20vw;
   }
 }
@@ -236,28 +238,24 @@ body{
   }
 }
 
-
-
-
-
 /* Responsive for small screens */
 @media (max-width: 650px) {
   .productsis {
     display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
-  width: 80vw;
-  max-width: 1500px;
-  margin: 80px auto;
-  padding: 40px;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    width: 80vw;
+    max-width: 1500px;
+    margin: 80px auto;
+    padding: 40px;
 
-  border-radius: 20px;
+    border-radius: 20px;
   }
 
   .blockImage img {
-  width: 30vw;
-  height: 40vw;
+    width: 30vw;
+    height: 40vw;
   }
 
   .textDetails {
@@ -271,54 +269,53 @@ body{
   }
 
   .comment-item {
- width: 38vw;
-}
+    width: 38vw;
+  }
 
-.comment-item p {
+  .comment-item p {
     font-size: 6px;
   }
-  .comments-section h3{
+  .comments-section h3 {
     font-size: 15px;
   }
   .headerComments {
-  
-     width: 25vw; 
+    width: 25vw;
     margin-top: -10px;
     font-family: "Quicksand", sans-serif;
     font-size: 10px;
-}
-.comments-section button {
-
+  }
+  .comments-section button {
     background-color: #ff8fab;
     color: white;
     font-family: "Quicksand", sans-serif;
     font-weight: 700;
     cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-}
-.comments-section button:nth-child(1){
-  background-color: #e91e63;
-}
-
+    transition:
+      background-color 0.2s ease,
+      transform 0.2s ease;
+  }
+  .comments-section button:nth-child(1) {
+    background-color: #e91e63;
+  }
 }
 
 @media (max-width: 450px) {
   .productsis {
     display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
-  width: 80vw;
-  max-width: 1500px;
-  margin: 80px auto;
-  padding: 40px;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    width: 80vw;
+    max-width: 1500px;
+    margin: 80px auto;
+    padding: 40px;
 
-  border-radius: 20px;
+    border-radius: 20px;
   }
 
   .blockImage img {
-  width: 40vw;
-  height: 60vw;
+    width: 40vw;
+    height: 60vw;
   }
 
   .textDetails {
@@ -332,31 +329,23 @@ body{
   }
 
   .comment-item {
- width: 38vw;
-}
+    width: 38vw;
+  }
 
-.comment-item p {
+  .comment-item p {
     font-size: 6px;
   }
-  .comments-section h3{
+  .comments-section h3 {
     font-size: 15px;
   }
   .headerComments {
-  
-     width: 45vw; 
+    width: 45vw;
     margin-top: -10px;
     font-family: "Quicksand", sans-serif;
     font-size: 10px;
+  }
+
+  .comments-section button:nth-child(1) {
+    background-color: #e91e63;
+  }
 }
-.comments-section button {
-
-  
-}
-.comments-section button:nth-child(1){
-  background-color: #e91e63;
-}
-
-}
-
-
-

@@ -87,14 +87,24 @@ body {
   font-size: 13px;
   gap: 10px;
 }
+
 .titleentry span {
-  color: rgb(255, 162, 0);
+  color: rgb(70, 2, 2);
+  font-weight: bolder;
+  font-size: larger;
 }
 
 .text p {
   font-family: "quicksand-regular", sans-serif;
   color: grey;
   font-size: 17px;
+}
+
+.titleentry p {
+  color: white;
+
+  font-family: "quicksand-regular", sans-serif;
+  font-size: 13px;
 }
 /* CARD PRODUIT - plus grande et sans fond gris */
 .blockProduct {
@@ -114,7 +124,7 @@ body {
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
-  cursor: pointer;
+
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -208,8 +218,14 @@ body {
   background-color: rgb(224, 80, 128);
   color: white;
   overflow: hidden;
-
+  cursor: default;
+  height: 10px;
   white-space: nowrap;
+}
+
+.defilementbar img {
+  width: 50px;
+  height: 50px;
 }
 
 .popup {
@@ -220,16 +236,6 @@ body {
   justify-content: space-evenly;
   align-items: center;
   gap: 60px;
-  animation: scrollLinear 100s linear infinite;
-}
-
-@keyframes scrollLinear {
-  0% {
-    transform: translateX(20vw);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
 }
 
 /* SECTION EXPLICATION */
@@ -250,6 +256,10 @@ body {
   color: rgb(70, 2, 2);
   font-size: 34px;
   margin-bottom: calc(-10vw + 9%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
 }
 .Titleexplication span {
   color: rgb(224, 80, 128);
@@ -259,7 +269,7 @@ body {
   line-height: 1; /* tighter than 1.1 */
 }
 
-.pexpplication {
+.Titleexplication p {
   font-family: "quicksand-regular", sans-serif;
   color: rgb(70, 2, 2);
   font-size: 18px;
@@ -296,6 +306,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  cursor: pointer;
   align-items: center;
   width: 200px;
 
@@ -372,16 +383,19 @@ body {
   text-align: left;
 }
 .reviewtexte {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: center;
   font-family: "quicksand-regular", sans-serif;
   color: gray;
   font-size: 18px;
-  width: 500px;
 }
 .reviewtexte h2 {
   font-family: "Paytone One", sans-serif;
   color: rgb(70, 2, 2);
   font-size: 36px;
-  margin-bottom: calc(-10vw + 22%);
+  height: 10px;
 }
 
 .reviewtexte span {
@@ -394,13 +408,6 @@ body {
   justify-content: space-between;
   align-items: center;
   text-align: center;
-}
-.steps:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
 }
 
 .steps {
@@ -422,11 +429,12 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 90vw;
 }
 .steps h3 {
   font-family: "Paytone One", sans-serif;
   color: black;
-  font-size: 30px;
+  font-size: 22px;
   margin-bottom: calc(10vw - 35%);
   margin-top: calc(10vw - 35%);
 }
@@ -438,7 +446,7 @@ body {
   align-items: center;
   text-align: center;
 
-  font-size: 40px;
+  font-size: 25px;
   background-color: rgb(224, 80, 128);
   /* keeps it a circle */
   /* increase size */
@@ -449,7 +457,7 @@ body {
 .steps p {
   font-family: "quicksand-regular", sans-serif;
   color: rgb(120, 120, 120);
-  font-size: 18px;
+  font-size: 15px;
 }
 .commentaire {
   display: flex;
@@ -550,25 +558,20 @@ body {
   color: white;
   border-color: rgb(255, 255, 255);
 }
+
 /* MOBILE */
 
-@media (max-width: 2500px) {
-  /* GLOBAL */
-  .allpage {
-    display: flex;
-    justify-content: center;
-
-    width: auto;
+@media (max-width: 2500px) and (min-width: 1100px) {
+  body:has(.homepagebuttonss) #root {
+    max-width: 2500px;
+    margin: 0;
+    padding-top: 1rem;
+    text-align: center;
   }
-
-  /* PRODUCTS GRID */
 
   .productCardi {
     width: 45%; /* 2 per row */
     height: auto;
-  }
-
-  .productCardi img {
   }
 
   /* EXPLICATION SECTION */
@@ -594,12 +597,10 @@ body {
 
   .productexplication img {
     width: 100%;
-    height: auto;
   }
 
   .product {
     flex-wrap: wrap;
-    justify-content: center;
   }
 
   /* REVIEW SECTION */
@@ -618,7 +619,7 @@ body {
   }
 
   .explicationBlocks {
-    flex-wrap: wrap;
+    flex-wrap: row;
     justify-content: center;
     width: 90vw;
     height: auto;
@@ -641,9 +642,6 @@ body {
   .commentairetexte {
     width: 36vw;
   }
-
-  .commentaireButtons {
-  }
 }
 
 @media (max-width: 1100px) {
@@ -652,14 +650,6 @@ body {
   /* SECTION HERO / BEST PRODUCT */
   .bestProduct {
     padding: 40px 30px;
-  }
-
-  /* BUTTONS */
-  .homepagebuttonss {
-  }
-
-  /* PRODUCTS GRID */
-  .blockProduct {
   }
 
   .productCardi {
@@ -696,12 +686,10 @@ body {
 
   .productexplication img {
     width: 100%;
-    height: auto;
   }
 
   .product {
     flex-wrap: wrap;
-    justify-content: center;
   }
 
   /* REVIEW SECTION */
@@ -709,22 +697,16 @@ body {
     height: auto;
   }
 
-  .reviewtexte {
-    padding: 0 20px;
-  }
   .review h2 {
     font-size: 30px;
   }
 
-  .explicationBlocks {
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 90vw;
+  .steps h3 {
+    font-size: 17px;
   }
 
-  .steps {
-    width: 32vw;
-    height: auto;
+  .steps p {
+    font-size: 13px;
   }
 
   /* COMMENT SECTION */
@@ -739,22 +721,82 @@ body {
   .commentairetexte {
     width: 36vw;
   }
-
-  .commentaireButtons {
-  }
 }
 
+@media (max-width: 1000px) {
+  /* GLOBAL */
+
+  /* SECTION HERO / BEST PRODUCT */
+  .bestProduct {
+    padding: 40px 30px;
+  }
+
+  .productCardi {
+    width: 45%; /* 2 per row */
+    height: auto;
+    transform: rotate(0deg); /* remove tilt for clean tablet UI */
+  }
+
+  .productCardi img {
+    object-fit: cover;
+  }
+
+  /* EXPLICATION SECTION */
+  .explication {
+    height: auto;
+    padding: 40px 20px;
+  }
+
+  .Titleexplication {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .pexpplication {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .productexplication {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .productexplication img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .product {
+    flex-wrap: wrap;
+  }
+
+  /* REVIEW SECTION */
+  .review {
+    height: auto;
+  }
+
+  .review h2 {
+    font-size: 30px;
+  }
+
+  /* COMMENT SECTION */
+  .commentaire {
+    width: 90vw;
+    height: auto;
+  }
+
+  .commentaire p {
+    margin-top: calc(10vw - 28%);
+  }
+  .commentairetexte {
+    width: 36vw;
+  }
+}
 /* ----------- TABLETTE ----------- */
 @media (max-width: 900px) {
   /* GLOBAL */
-  .allpage {
-    display: flex;
-    justify-content: center;
-    width: auto;
-  }
-
-  .blocks {
-  }
 
   /* SECTION HERO / BEST PRODUCT */
   .bestProduct {
@@ -828,103 +870,100 @@ body {
 
   .productexplication img {
     width: 100%;
-    height: auto;
+    height: 100%;
   }
 
   .product {
     flex-wrap: wrap;
-    justify-content: center;
+  }
+
+  .steps p {
+    font-size: 12px;
   }
 
   /* REVIEW SECTION */
   .review {
     height: auto;
-  }
-  .reviewCard {
-    align-items: center;
-  }
-  .reviewtexte {
-    text-align: center;
-  }
-  .review h2 {
-    font-size: 30px;
+    width: fit-content;
   }
 
   .explicationBlocks {
-    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+
     justify-content: center;
     align-items: center;
+    height: 90;
   }
 
   .steps {
-    width: 45%;
+    width: 27%;
     height: auto;
-  }
-
-  /* COMMENT SECTION */
-  .commentaire {
-    width: 70vw;
-    flex-direction: column;
-    text-align: center;
-
-    justify-content: space-evenly;
-    align-items: center;
-    padding-bottom: 15px;
-  }
-
-  .commentairetexte {
-    width: 50vw;
-
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0px;
   }
 
-  .commentaire p {
-    margin-top: calc(10vw - 15%);
+  .steps h3 {
+    font-size: 15px;
   }
-  .commentaireButtons {
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+
+  .steps p {
+    font-size: 12px;
+  }
+  .commentaire {
+    width: 94vw;
+  }
+  .commentaireButtons button {
+    width: 178px;
+  }
+  .titleentry {
+    padding: 0px 35px;
   }
 }
 
-
-@media (max-width: 420px) {
-
+@media (max-width: 780px) {
   /* GLOBAL */
-  .allpage {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   
-  }
 
   /* SECTION HERO / BEST PRODUCT */
+
+  .titleentry {
+    padding: 0px 25px;
+  }
+
   .bestProduct {
+    display: flex;
     flex-direction: column;
-    height: auto;
-   
-    gap: 50px;
-    margin-top: 55px;
+    justify-content: center;
+
+    gap: 0px;
+    align-items: center;
+    text-align: center;
+    padding: 0 0;
+    margin-top: 46px;
   }
 
   .text {
-  
-    height: auto;
+    width: 0;
+    height: 10%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
     align-items: center;
+    gap: 10px;
   }
 
   .text h2 {
-    font-size: 32px; /* juste réduit pour iPhone SE */
+    font-size: 32px;
   }
 
   .text p {
     font-size: 14px;
-    
+    width: auto;
   }
 
   /* BUTTONS */
@@ -933,25 +972,19 @@ body {
     flex-wrap: wrap;
     gap: 10px;
   }
-
-  /* PRODUCTS GRID */
-  .blockProduct {
-   
-    height: auto;
-    gap: 40px;
+  .steps p {
+    font-size: 11px;
   }
-
-  .productCardi {
-    height: auto;
-    transform: rotate(0deg);
-  }
-
-  
 
   /* EXPLICATION SECTION */
   .explication {
     height: auto;
-    
+  }
+  .blockProduct {
+    visibility: hidden;
+
+    width: 0;
+    height: 0;
   }
 
   .Titleexplication {
@@ -960,7 +993,6 @@ body {
   }
 
   .pexpplication {
-   
     font-size: 14px;
   }
 
@@ -971,8 +1003,12 @@ body {
   }
 
   .productexplication img {
- 
-    height: auto;
+    height: 100%;
+  }
+  .explication {
+    background: white;
+
+    text-align: center;
   }
 
   .product {
@@ -980,8 +1016,425 @@ body {
     justify-content: center;
   }
 
- 
- 
-  
+  .commentaireButtons button {
+    width: 139px;
+  }
 
+  .steps h3 {
+    font-size: 13px;
+  }
+  .steps p {
+    font-size: 9px;
+  }
+  .productexplication img {
+    height: 100%;
+    width: 100%;
+  }
+}
+@media (max-width: 639px) {
+  /* GLOBAL */
+
+  .productexplication img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .blockProduct {
+    visibility: hidden;
+
+    width: 0;
+    height: 0;
+  }
+
+  /* SECTION HERO / BEST PRODUCT */
+  .bestProduct {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 0px;
+    align-items: center;
+    text-align: center;
+    padding: 0 0;
+    margin-top: 48px;
+  }
+
+  .text {
+    width: 0;
+    height: 10%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .text h2 {
+    font-size: 32px; /* juste réduit pour iPhone SE */
+  }
+
+  .text p {
+    font-size: 14px;
+    width: auto;
+  }
+
+  /* BUTTONS */
+  .homepagebuttonss {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* EXPLICATION SECTION */
+  .explication {
+    height: auto;
+  }
+
+  .Titleexplication {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .pexpplication {
+    font-size: 14px;
+  }
+
+  .productexplication {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .productexplication img {
+    height: 100%;
+  }
+
+  .product {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .blockProduct {
+    visibility: hidden;
+
+    width: 0;
+    height: 0;
+  }
+  .explicationBlocks {
+    flex-wrap: wrap;
+
+    gap: 30px;
+
+    align-items: center;
+    text-align: center;
+  }
+  .reviewtexte {
+    text-align: center;
+    width: 50vw;
+    height: auto;
+  }
+
+  .commentairetexte {
+    width: 91vw;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 95px;
+    align-items: center;
+    text-align: center;
+  }
+  /* COMMENT SECTION */
+  .commentaire {
+    width: 93vw;
+    flex-direction: column;
+    text-align: center;
+
+    align-items: center;
+    padding-bottom: 15px;
+    align-items: center;
+  }
+
+  .commentaire p {
+    margin-top: calc(10vw - 15%);
+  }
+  .commentaireButtons {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+  }
+  .steps {
+    width: 65%;
+    height: 41vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .review h2 {
+    font-size: 24px;
+  }
+  .steps h3 {
+    font-size: 27px;
+  }
+  .reviewCard {
+    align-items: center;
+  }
+}
+
+@media (max-width: 560px) {
+  /* SECTION HERO / BEST PRODUCT */
+  .bestProduct {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 0px;
+    align-items: center;
+    text-align: center;
+    padding: 0 0;
+    margin-top: 96px;
+  }
+
+  .text {
+    width: 0;
+    height: 10%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .text h2 {
+    font-size: 32px; /* juste réduit pour iPhone SE */
+  }
+
+  .text p {
+    font-size: 14px;
+    width: auto;
+  }
+
+  /* BUTTONS */
+  .homepagebuttonss {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* EXPLICATION SECTION */
+  .explication {
+    height: auto;
+  }
+
+  .Titleexplication {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .pexpplication {
+    font-size: 14px;
+  }
+
+  .productexplication {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .product {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .blockProduct {
+    visibility: hidden;
+
+    width: 0;
+    height: 0;
+  }
+  .commentairetexte {
+    gap: 53px;
+  }
+  .commentairetexte {
+    width: 90vw;
+    height: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 83px;
+    align-items: center;
+  }
+  /* COMMENT SECTION */
+  .commentaire {
+    width: 93vw;
+    flex-direction: column;
+    text-align: center;
+
+    align-items: center;
+    padding-bottom: 15px;
+    align-items: center;
+  }
+
+  .commentaire p {
+    margin-top: calc(10vw - 15%);
+  }
+  .commentaireButtons {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+  }
+  .review h2 {
+    font-size: 22px;
+  }
+  .reviewCard {
+    align-items: center;
+  }
+}
+
+@media (max-width: 470px) {
+  /* GLOBAL */
+
+  /* SECTION HERO / BEST PRODUCT */
+  .bestProduct {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 0px;
+    align-items: center;
+    text-align: center;
+    padding: 0 0;
+    margin-top: 81px;
+  }
+
+  .text {
+    width: 0;
+    height: 10%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .text h2 {
+    font-size: 32px; /* juste réduit pour iPhone SE */
+  }
+
+  .text p {
+    font-size: 14px;
+    width: auto;
+  }
+
+  /* BUTTONS */
+  .homepagebuttonss {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* EXPLICATION SECTION */
+  .explication {
+    height: auto;
+  }
+
+  .Titleexplication {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .pexpplication {
+    font-size: 14px;
+  }
+
+  .productexplication {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .productexplication img {
+    height: auto;
+  }
+
+  .product {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: min-content;
+  }
+
+  .blockProduct {
+    visibility: hidden;
+
+    width: 0;
+    height: 0;
+  }
+  .commentairetexte {
+    gap: 53px;
+  }
+  .commentairetexte {
+    width: 80vw;
+    height: auto;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+    align-items: center;
+  }
+  /* COMMENT SECTION */
+  .commentaire {
+    display: flex;
+    width: 93vw;
+    flex-direction: column;
+    text-align: center;
+
+    align-items: center;
+    padding-bottom: 15px;
+    align-items: center;
+  }
+
+  .commentaire p {
+    margin-top: calc(10vw - 15%);
+  }
+  .commentaireButtons {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .steps p {
+    font-size: 15px;
+  }
+
+  .steps h3 {
+    font-size: 13px;
+  }
+
+  .steps {
+    height: 49vw;
+  }
+
+  .reviewCard {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 90vw;
+  }
 }

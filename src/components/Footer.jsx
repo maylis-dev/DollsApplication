@@ -8,7 +8,7 @@ function Footer() {
     <>
       <div className="footer">
         <div className="blocksfooter">
-          <div className="block1">
+          <div className="block1" id="firstBlock">
             <h3>DollsApp ✦</h3>
             <h6 className="textses">
               La plateforme communautaire dédiée aux passionné·e·s de poupées.
@@ -16,17 +16,26 @@ function Footer() {
             </h6>
           </div>
           <div className="block1">
-            <h2>Navigation</h2>
-            <h6>Dolls</h6>
-            <h6>SignUp</h6>
-            <h6>Home</h6>
+            <h2>Navigation </h2>
+            <Link to="/products">
+              {" "}
+              <h6>Dolls</h6>
+            </Link>
+            <Link to={"/signup"}>
+              <h6>SignUp</h6>
+            </Link>
+            <Link to="/">
+              <h6>Home</h6>
+            </Link>
           </div>
-          <div className="block1">
+          {/* <div className="block1">
             <h2>Categories</h2>
-            <h6>Dolls</h6>
-            <h6>Barbie</h6>
+            <h6>Monster High</h6>
+            <Link to="/barbies">
+              <h6>Barbie</h6>
+            </Link>
             <h6>Bratz</h6>
-          </div>
+          </div>*/}
           <div className="block1">
             <h2>Follow Us</h2>
             <h6>Facebook</h6>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 import CreateComments from "../components/CreateComments";
@@ -11,6 +11,7 @@ function ProductDetailPage() {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [comments, setComments] = useState([]);
+  const navigate = useNavigate();
   //verifie si user is logged
   const token = localStorage.getItem("authToken");
   const isLoggedIn = !!token;
@@ -75,61 +76,68 @@ function ProductDetailPage() {
     <>
       <Navbar />
 
-<div className="background">
-      <div className="productsis">
-        {/* IMAGE BLOCK */}
-        <div className="blockImage">
-          {product.imageUrl ? (
-            <img src={product.imageUrl} alt={product.name} />
-          ) : (
-            <p>No image available</p>
-          )}
-        </div>
-
-        {/* TEXT DETAILS */}
-        <div className="textDetails">
-          {/* Product Name */}
-          <div className="text-block-name">
-            <h1>{product.name}</h1>
+      <div className="background">
+        <div className="productsis">
+          {/* IMAGE BLOCK */}
+          <div className="blockImage">
+            {product.imageUrl ? (
+              <img src={product.imageUrl} alt={product.name} />
+            ) : (
+              <p>No image available</p>
+            )}
           </div>
 
-          {/* Seller, Stock, Category in ONE block */}
-          <div className="text-block-productinfo">
-            <p className="rowInfo">
-              Seller <span>{product.seller?.username || "N/A"}</span>
-            </p>
-            <p className="rowInfo">
-              Stock <span>{product.stock}</span>
-            </p>
-            <p className="rowInfo">
-              Category <span>{product.category || "N/A"}</span>
-            </p>
-          </div>
+          {/* TEXT DETAILS */}
+          <div className="textDetails">
+            {/* Product Name */}
+            <div className="text-block-name">
+              <h1>{product.name}</h1>
+            </div>
 
-          {/* Price */}
-          <div className="text-block-price">
-            <p>
-              Price <span>{product.salePrice} $</span>
-            </p>
-          </div>
-
-          {/* Email / Request */}
-          {isLoggedIn && (
-            <div className="text-block-askrequest">
-              <p>
-                Email: <span> {product.seller?.email || "N/A"}</span>
+            {/* Seller, Stock, Category in ONE block */}
+            <div className="text-block-productinfo">
+              <p className="rowInfo">
+                Seller <span>{product.seller?.username || "N/A"}</span>
+              </p>
+              <p className="rowInfo">
+                Stock <span>{product.stock}</span>
+              </p>
+              <p className="rowInfo">
+                Category <span>{product.category || "N/A"}</span>
               </p>
             </div>
-          )}
 
-          {/* Comments Section */}
-          {isLoggedIn && (
-            <div className="text-block6comments-section">
-              <CreateComments productId={productId} />
+            {/* Price */}
+            <div className="text-block-price">
+              <p>
+                Price <span>{product.salePrice} $</span>
+              </p>
             </div>
-          )}
+
+            {/* Email / Request */}
+            {isLoggedIn && (
+              <div className="text-block-askrequest">
+                <p>
+                  Email: <span> {product.seller?.email || "N/A"}</span>
+                </p>
+              </div>
+            )}
+
+            {/* Comments Section */}
+            <div className="text-block6comments-section">
+              {isLoggedIn ? (
+                <CreateComments productId={productId} />
+              ) : (
+                <div className="locked-comments">
+                  <p>
+                    <span onClick={() => navigate("/login")}>Log </span>to see
+                    comments and seller
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
-      </div>
       </div>
     </>
   );

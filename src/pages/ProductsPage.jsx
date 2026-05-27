@@ -4,24 +4,27 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import "./DollsPage.css";
 
+import { useNavigate } from "react-router-dom";
+
 function ProductsPage() {
   const [allProducts, setAllProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All"); // Default: show all
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getData();
-  }, [selectedCategory]); // ✅ on peut relancer la récupération si on veut filtrer côté backend
+  }, [selectedCategory]); //
 
   const getData = async () => {
     try {
-      // Si tu veux filtrer côté backend
+      setLoading(true);
       const query =
         selectedCategory !== "All" ? `?category=${selectedCategory}` : "";
       const response = await axios.get(
         `${import.meta.env.VITE_SERVER_URL}/api/products${query}`,
       );
-      console.log("All products fetched:", response.data); // 🔍 debug
+      //console.log("All products fetched:", response.data); // 🔍 debug
       setAllProducts(response.data);
     } catch (error) {
       console.error("Failed to fetch products:", error.response.data.message);
@@ -37,7 +40,9 @@ function ProductsPage() {
       : allProducts.filter((product) => product.category === selectedCategory);
 
   if (loading) {
-    return <h3>Loading...</h3>;
+    return <span className="loader"></span>;
+
+    //!skelleton ou spinner
   }
 
   return (
@@ -78,10 +83,11 @@ function ProductsPage() {
               </p>
             ) : (
               filteredProducts.map((product) => (
-                <div className="purchaseDolls doll-card" key={product._id}>
-                  {/* Nom */}
-
-                  {/* Image */}
+                <div
+                  className="purchaseDolls doll-card"
+                  key={product._id}
+                  onClick={() => navigate(`/products/${product._id}`)}
+                >
                   {product.imageUrl && (
                     <img
                       src={product.imageUrl}
@@ -91,12 +97,12 @@ function ProductsPage() {
                   )}
 
                   <div className="secondBlock">
-                  {/* Titre */}
-                  <h3 className="doll-name">{product.name}</h3>
-                  {/* Bouton demander */}
-                  <Link to={`/products/${product._id}`}>
-                    <button className="request-btn">Request</button>
-                  </Link>
+                    {/* Titre */}
+                    <h3 className="doll-name">{product.name}</h3>
+                    {/* Bouton demander */}
+                    <Link to={`/products/${product._id}`}>
+                      <button className="request-btn">See Doll</button>
+                    </Link>
                   </div>
                 </div>
               ))

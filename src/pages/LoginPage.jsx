@@ -93,12 +93,12 @@ function LoginPage() {
         </div>
 
         <div className="clas">
-          
-          <span>OR</span>
-         
-          </div>
-          <div className="signup-link">
-          <p>No account? <a href="/signup">Sign up</a></p>
+          <span>or</span>
+        </div>
+        <div className="signup-link">
+          <p>
+            No account? <a href="/signup">Sign up</a>
+          </p>
         </div>
 
         {errorMessage && <p className="login-error">{errorMessage}</p>}

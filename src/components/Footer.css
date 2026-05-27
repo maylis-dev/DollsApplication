@@ -77,7 +77,9 @@ body {
   font-size: 12px;
   font-weight: bold;
   display: flex;
-  justify-content: center;
+
+  text-align: justify;
+
   width: 250px;
 }
 
@@ -177,8 +179,8 @@ hr {
 .blocksfooter {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: space-around;
+  align-items: center;
   width: 100%;
   max-width: 1200px;
   gap: 40px;
@@ -210,21 +212,30 @@ hr {
   border-top: 1px solid rgba(137, 137, 137, 0.3);
 }
 
+#firstBlock {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-start;
+  text-align: left;
+  align-items: flex-start;
+  width: 30%;
+}
+
 /* =========================
    TABLET (≤1024px)
 ========================= */
 
 @media (max-width: 2500px) {
   .footer {
-   
     width: 100vw;
   }
 
   .blocksfooter {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
+    display: flex;
+    justify-content: space-around;
     text-align: center;
+    align-items: center;
   }
 
   .block1 {
@@ -239,8 +250,8 @@ hr {
   .footerBas {
     flex-direction: row;
     flex-wrap: wrap;
-
-    gap: 10px;
+    justify-content: space-around;
+    gap: 30px;
   }
 }
 @media (max-width: 1024px) {
@@ -267,12 +278,13 @@ hr {
   .footerBas {
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-around;
 
-    gap: 10px;
+    gap: 30px;
   }
 }
 
-@media (max-width: 1000px) and (min-width: 800px) {
+@media (max-width: 1000px) and (min-width: 995px) {
   .footer {
     width: 100vw;
   }
@@ -295,6 +307,7 @@ hr {
   .footerBas {
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-around;
 
     gap: 10px;
   }
@@ -311,17 +324,18 @@ hr {
   }
 
   .blocksfooter {
-    align-items: flex-start;
-    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
     gap: 25px;
   }
 
   .block1 {
+    justify-content: center;
     align-items: center;
-    text-align: left;
-  }
-
-  .block1 h3 {
+    text-align: center;
   }
 
   .block1 h2 {
@@ -329,7 +343,9 @@ hr {
   }
 
   .textses {
-    width: 80vw;
+    width: 25vw;
+    text-align: left;
+    justify-content: flex-start;
   }
 
   .footerBas {
@@ -342,10 +358,30 @@ hr {
 ========================= */
 
 @media (max-width: 600px) {
-  .footer {
-    padding: 20px 30px;
-  }
+  .blocksfooter {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
+    text-align: center;
+  }
+  .block1 {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  #firstBlock {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .textses {
+    width: 90%;
+    text-align: justify;
+    justify-content: center;
+    align-items: center;
+  }
   .block1 h3 {
     font-size: 20px;
   }
