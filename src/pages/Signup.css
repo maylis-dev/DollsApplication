@@ -273,10 +273,11 @@
 /* ===================== SMALL TABLET / LARGE PHONE ===================== */
 @media (max-width: 540px) {
   .signup-container {
-    width: 55vw;
+    width: 88vw;
+    height: auto;
   }
   .signup-form {
-    width: 35vw;
+    width: 60vw;
     margin-top: 22px;
     padding: 0 33px;
   }

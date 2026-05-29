@@ -14,7 +14,6 @@ body {
 }
 
 /* PAGE */
-
 .allpage {
   display: flex;
   justify-content: center;
@@ -1191,6 +1190,10 @@ body {
 
 @media (max-width: 560px) {
   /* SECTION HERO / BEST PRODUCT */
+  body:has(.homepagebuttonss) #root {
+    max-width: 560px;
+  }
+
   .bestProduct {
     display: flex;
     flex-direction: column;
@@ -1200,7 +1203,7 @@ body {
     align-items: center;
     text-align: center;
     padding: 0 0;
-    margin-top: 96px;
+    margin-top: 52px;
   }
 
   .text {
@@ -1215,6 +1218,17 @@ body {
     gap: 10px;
   }
 
+  .Titleexplication p {
+    font-family: "quicksand-regular", sans-serif;
+    color: rgb(70, 2, 2);
+    font-size: 18px;
+    width: 85vw;
+  }
+  .allpage {
+    display: flex;
+    justify-content: center;
+    width: 92vw;
+  }
   .text h2 {
     font-size: 32px; /* juste réduit pour iPhone SE */
   }
